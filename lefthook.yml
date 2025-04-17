@@ -1,0 +1,29 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: npm run biome:lint
+      include: './src/**/*.{js,jsx,ts,tsx}'
+      exclude: 'node_modules'
+    format:
+      run: npm run biome:format
+      include: './src/**/*.{js,jsx,ts,tsx}'
+      exclude: 'node_modules'
+    tests:
+      run: npm run test
+      include: './src/**/*.{js,jsx,ts,tsx}'
+      exclude: 'node_modules'
+
+pre-push:
+  parallel: true
+  commands:
+    biome-check:
+      run: npm run biome:check
+    biome-fix:
+      run: npm run biome:fix
+
+commit-msg:
+  paralle: true
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}

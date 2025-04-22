@@ -1,10 +1,10 @@
-import { StyledContainedButton } from "./styled";
+import { StyledContainedButton, StyledOutlinedButton } from "./styled";
 
 const UIButton = ({
 	label,
 	icon,
 	variant,
-	iconPositon,
+	iconPosition,
 	styletype,
 	fs,
 	imgHeight,
@@ -18,26 +18,44 @@ const UIButton = ({
 				<img
 					src={icon}
 					alt={label}
-					style={{ width: imgWidth, height: imgHeight }}
+					style={{ width: imgWidth, height: imgHeight, color: "white" }}
 				/>
 			);
-		} else {
-			return icon;
 		}
+		return icon;
 	};
 	return (
 		<>
 			{variant === "contained" ? (
 				<StyledContainedButton
 					fs={fs}
-					startIcon={iconPositon === "start" && renderIcon()}
-					endIcon={iconPositon === "end" && renderIcon()}
+					startIcon={iconPosition === "start" && renderIcon()}
+					endIcon={iconPosition === "end" && renderIcon()}
 					disabled={isLoading}
 					styletype={styletype}
 					{...props}
 				>
 					{label}
 				</StyledContainedButton>
+			) : variant === "outlined" ? (
+				<StyledOutlinedButton
+					startIcon={iconPosition === "start" && renderIcon()}
+					endIcon={iconPosition === "end" && renderIcon()}
+					fs={fs}
+					styleType={styletype}
+					disabled={isLoading}
+					{...props}
+				>
+					{isLoading ? (
+						<CircularProgress
+							size="26px"
+							thickness={6}
+							sx={{ color: "#999999" }}
+						/>
+					) : (
+						label
+					)}
+				</StyledOutlinedButton>
 			) : null}
 		</>
 	);

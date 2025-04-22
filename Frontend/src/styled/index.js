@@ -1,4 +1,5 @@
-import { Typography, styled } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export const StyledTypography = styled(Typography)(
 	({ theme, fs, fw, styleType, maxlines, light }) => ({
@@ -23,3 +24,17 @@ export const StyledTypography = styled(Typography)(
 			}),
 	}),
 );
+
+export const FlexBetween = styled(Box)({
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	gap: "20px",
+});
+
+export const StyledNavlink = styled(NavLink)(({ theme }) => ({
+	textDecoration: "none",
+	color: theme.palette.button.primary,
+	fontWeight: 600,
+	display: "block",
+}));

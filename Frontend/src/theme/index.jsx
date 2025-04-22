@@ -32,7 +32,13 @@ export const appTheme = createTheme({
 	},
 	shadows: [
 		"none",
-		"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
-		"0px 2px 5px rgba(38, 51, 77, 0.3)",
+		"0px 1px 2px rgba(0, 106, 113, 0.3), 0px 1px 3px 1px rgba(0, 106, 113, 0.15)",
+		"0px 2px 5px rgba(0, 106, 113, 0.3)",
 	],
+	breakpoints: {
+		mobile: 450,
+		tablet: 786,
+		laptop: 1024,
+		desktop: 1440,
+	},
 });

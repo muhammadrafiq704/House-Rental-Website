@@ -1,11 +1,12 @@
 import { StyledTypography } from "@/styled";
-import { useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 import UIButton from "../Button/UIButton";
 import { StyledErrorBoundaryWrapper } from "./styled";
 
 export default function ErrorPage() {
 	const error = useRouteError();
-	console.log("error", error);
+	const navigate = useNavigate();
+
 	return (
 		<StyledErrorBoundaryWrapper>
 			<div id="error-page">
@@ -18,12 +19,21 @@ export default function ErrorPage() {
 						{error.statusText || error.message}
 					</StyledTypography>
 				</StyledTypography>
-				<UIButton
-					variant="contained"
-					label="Reload"
-					styletype="inverted"
-					onClick={() => window.location.reload()}
-				/>
+				{error.status === 404 ? (
+					<UIButton
+						variant="contained"
+						label="Go Back"
+						styletype="inverted"
+						onClick={() => navigate(-1)}
+					/>
+				) : (
+					<UIButton
+						variant="contained"
+						label="Reload"
+						styletype="inverted"
+						onClick={() => window.location.reload()}
+					/>
+				)}
 			</div>
 		</StyledErrorBoundaryWrapper>
 	);

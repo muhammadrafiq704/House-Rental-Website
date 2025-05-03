@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { StyledContainedButton, StyledOutlinedButton } from "./styled";
 
 const UIButton = ({
@@ -18,7 +19,7 @@ const UIButton = ({
 				<img
 					src={icon}
 					alt={label}
-					style={{ width: imgWidth, height: imgHeight, color: "white" }}
+					style={{ width: imgWidth, height: imgHeight }}
 				/>
 			);
 		}
@@ -35,7 +36,15 @@ const UIButton = ({
 					styletype={styletype}
 					{...props}
 				>
-					{label}
+					{isLoading ? (
+						<CircularProgress
+							size="26px"
+							thickness={6}
+							sx={{ color: "#999999" }}
+						/>
+					) : (
+						label
+					)}
 				</StyledContainedButton>
 			) : variant === "outlined" ? (
 				<StyledOutlinedButton

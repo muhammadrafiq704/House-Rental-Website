@@ -1,0 +1,24 @@
+/* src/components/carousel.css */
+
+.carousel-container {
+	position: relative;
+	width: 100%;
+	padding: 8px;
+	/* border: 1px solid red; */
+}
+.react-multi-carousel-item {
+	display: flex;
+	/* border: 1px solid red; */
+	justify-content: center;
+	align-items: center;
+	margin-top: 4px;
+}
+.react-multi-carousel-dot {
+	border: none;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	margin: 6px 6px;
+	display: inline-block;
+	cursor: pointer;
+}

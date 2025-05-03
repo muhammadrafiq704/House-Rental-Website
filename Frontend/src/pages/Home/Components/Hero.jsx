@@ -1,0 +1,54 @@
+import { icons } from "@/assets";
+import UIButton from "@/components/Button/UIButton";
+import { StyledTypography } from "@/styled";
+import { Box, Grid } from "@mui/material";
+import { StyledHeroWrapper } from "./styled/styled";
+
+const Hero = () => {
+	return (
+		<StyledHeroWrapper>
+			<Box
+				sx={{
+					position: "relative",
+					zIndex: 1,
+					width: "100%",
+					pl: 4,
+				}}
+			>
+				<Grid
+					container
+					spacing={4}
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "center",
+						alignItems: "center",
+						width: "100%",
+					}}
+				>
+					<Grid item>
+						<StyledTypography fs={3.3} sx={{ textAlign: "center" }}>
+							Find Your Dream Houses <br /> With Us!
+						</StyledTypography>
+						<pre
+							style={{ fontSize: "16px", color: "white", textAlign: "center" }}
+						>
+							We are dealing with all kinds of saling, rental, and commercial
+							plots.
+						</pre>
+					</Grid>
+					<Grid item>
+						<UIButton
+							label="Read More"
+							variant="contained"
+							iconPosition="end"
+							icon={icons.right_up}
+						/>
+					</Grid>
+				</Grid>
+			</Box>
+		</StyledHeroWrapper>
+	);
+};
+
+export default Hero;

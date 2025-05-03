@@ -4,6 +4,8 @@ const StyledAppWrapper = styled("div")(({ theme }) => ({
 	minWidth: "100dvh",
 	minHeight: "100dvh",
 	backgroundColor: theme.palette.primary.main,
+	fontFamily: theme.typography.fontFamily,
+	background: "linear-gradient(to bottom right, #e0f7fa, #ffffff)",
 }));
 
 const StyleHeaderWrapper = styled(Box)(({ theme }) => ({
@@ -13,9 +15,10 @@ const StyleHeaderWrapper = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "space-between",
-	padding: "0 20px 0 20px",
-	position: "-webkit-sticky",
+	padding: "0 20px",
+	position: "sticky",
 	top: 0,
+	zIndex: 999,
 	gap: "10px",
 	boxShadow: theme.shadows[1],
 	"& a": {
@@ -25,4 +28,73 @@ const StyleHeaderWrapper = styled(Box)(({ theme }) => ({
 	},
 }));
 
-export { StyledAppWrapper, StyleHeaderWrapper };
+const StyledFooterWrapper = styled("div")(({ theme }) => ({
+	width: "100%",
+	height: "auto",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+	boxShadow: theme.shadows[1],
+	marginBottom: "8px",
+	borderRadius: theme.shape.customRadius.halfRounded,
+}));
+
+const FooterContent = styled("div")({
+	padding: "20px",
+	display: "flex",
+	gap: "60px",
+});
+
+const FooterLogo = styled("div")({
+	display: "flex",
+	flexDirection: "column",
+	//   border: "1px solid red",
+	width: "100%",
+	alignItems: "flex-start",
+	//   justifyContent: "center",
+	padding: "4px",
+	gap: "10px",
+	"& img": {
+		width: "42px",
+	},
+});
+
+const FooterLinks = styled("div")({
+	width: "100%",
+	height: "200px",
+	//   border: "1px solid green",
+	padding: "4px",
+	display: "flex",
+	flexWrap: "wrap",
+	flexDirection: "column",
+	columnCount: "5",
+	rowGap: "10px",
+	columnGap: "24px",
+	transition: "ease-in",
+	"& a": {},
+});
+const FooterContact = styled("div")({
+	width: "100%",
+	//   border: "1px solid green",
+	padding: "4px",
+	display: "flex",
+	flexDirection: "column",
+	alignItems: "baseline",
+	gap: "20px",
+});
+const FooterContactInfo = styled("div")({
+	width: "100%",
+	//   border: "1px solid green",
+	padding: "4px",
+});
+
+export {
+	StyledAppWrapper,
+	StyleHeaderWrapper,
+	StyledFooterWrapper,
+	FooterLogo,
+	FooterContent,
+	FooterLinks,
+	FooterContact,
+	FooterContactInfo,
+};

@@ -4,7 +4,6 @@ import { styled } from "@mui/material/styles";
 export const StyledContainedButton = styled(Button)(
 	({ theme, fs, styletype }) => ({
 		backgroundColor: theme.palette.button.primary,
-		// backgroundColor:"transparent",
 		color:
 			styletype === "inverter"
 				? theme.palette.button.primary
@@ -13,9 +12,8 @@ export const StyledContainedButton = styled(Button)(
 					: styletype,
 		fontSize: fs || "1rem",
 		fontWeight: 500,
-		minHeight: 45,
+		minHeight: 40,
 		minWidth: 65,
-		// maxWidth: 65,
 		textTransform: "capitalize",
 		paddingLeft: "1em",
 		paddingRight: "1em",

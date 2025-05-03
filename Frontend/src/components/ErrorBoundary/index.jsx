@@ -10,14 +10,14 @@ export default function ErrorPage() {
 	return (
 		<StyledErrorBoundaryWrapper>
 			<div id="error-page">
-				<StyledTypography fs={2.8}>Oops!</StyledTypography>
-				<StyledTypography fs={1.2}>
+				<StyledTypography fs={2.8} styletype="default">
+					Oops!
+				</StyledTypography>
+				<StyledTypography fs={1.2} styletype="default">
 					Sorry, an unexpected error has occurred.
 				</StyledTypography>
-				<StyledTypography>
-					<StyledTypography>
-						{error.statusText || error.message}
-					</StyledTypography>
+				<StyledTypography styletype="default">
+					{error.statusText || error.message}
 				</StyledTypography>
 				{error.status === 404 ? (
 					<UIButton

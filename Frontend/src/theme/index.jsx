@@ -12,7 +12,7 @@ export const appTheme = createTheme({
 			primary: "#48A6A7",
 		},
 		text: {
-			primary: "#2C2C2C",
+			primary: "#006A71",
 			secondary: "#fff",
 			shade1: "#9ACBD0",
 			shade2: "#48A6A7",

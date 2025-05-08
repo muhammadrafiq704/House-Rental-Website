@@ -20,5 +20,8 @@ const appPaths = {
 
 	CATEGORIES_DETAILS: "/categories/:title",
 	ERROR: "/error",
+
+	//house register
+	PROPERTY_REGISTER: "/property-register",
 };
 export default appPaths;

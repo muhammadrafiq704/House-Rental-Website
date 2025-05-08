@@ -45,6 +45,10 @@ const appRoutes = (
 				lazy={() => import("@/pages/ContactUs")}
 			/>
 			<Route path={appPaths.PLOTS} lazy={() => import("@/pages/Plots")} />
+			<Route
+				path={appPaths.PROPERTY_REGISTER}
+				lazy={() => import("@/pages/HouseRegister")}
+			/>
 		</Route>
 		<Route path={appPaths.ERROR} element={<ErrorBoundary />} />
 	</Route>

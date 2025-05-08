@@ -1,6 +1,7 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { StyledNavlink, StyledTypography } from "@/styled";
+import appPaths from "@/utils/appRoutePaths";
 import { Box } from "@mui/material";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -49,7 +50,7 @@ const AppLayout = () => {
 							icon={icons.house}
 							iconPosition="end"
 							imgWidth={18}
-							onClick={() => navigate("/register")}
+							onClick={() => navigate(appPaths.PROPERTY_REGISTER)}
 						/>
 						<UIButton
 							fs={14}

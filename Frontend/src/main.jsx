@@ -9,6 +9,7 @@ import {
 	createRoutesFromElements,
 } from "react-router-dom";
 import { ToastContainer, Zoom } from "react-toastify";
+import UIPageLoading from "./components/UIPageLoading/UIPageLoading";
 
 const root = document.getElementById("root");
 
@@ -35,7 +36,7 @@ createRoot(root).render(
 				theme="dark"
 				transition={Zoom}
 			/>
-			<RouterProvider router={router} fallbackElement={<div>Loading...</div>} />
+			<RouterProvider router={router} fallbackElement={<UIPageLoading />} />
 		</ThemeProvider>
 	</StrictMode>,
 );

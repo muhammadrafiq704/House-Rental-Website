@@ -10,7 +10,7 @@ const appPaths = {
 	CONTACT_US: "/contact-us",
 	PLOTS: "/plots",
 	SHOPS: "/shops",
-	HOUSES: "/houses",
+	HOUSES: "/:type",
 	APARTMENTS: "/apartments",
 	ROOMS: "/rooms",
 

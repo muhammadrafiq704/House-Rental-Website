@@ -1,13 +1,16 @@
+import ErrorPage from "@/components/ErrorBoundary";
 import { StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
+import { Suspense } from "react";
+import { Await, useLoaderData } from "react-router-dom";
 import HousesCard from "./HousesCard";
 import { StyledAdvertismentCard, StyledHousesWrapper } from "./styled";
-// import { Suspense } from "react";
-// import { Await, useLoaderData } from "react-router-dom";
 import { DummyHousesData } from "./utils";
 
 const Houses = () => {
-	// const loaderData = useLoaderData();
+	const loaderData = useLoaderData();
+	console.log("loaderData", loaderData);
+
 	return (
 		<StyledHousesWrapper>
 			<Grid
@@ -31,18 +34,20 @@ const Houses = () => {
 						// border: "1px solid blue",
 					}}
 				>
-					{/* <Suspense fallback={<div>Loading...</div>}>
-            <Await resolve={loaderData.houses}> */}
-					{
-						// (DummyHousesData) =>
-						DummyHousesData.length === 0
-							? "No Houses Found"
-							: DummyHousesData?.map((house) => (
-									<HousesCard houses={house} key={house.id} />
-								))
-					}
-					{/* </Await>
-          </Suspense> */}
+					<Suspense fallback={<div>Loading...</div>}>
+						<Await
+							resolve={loaderData.properties}
+							errorElement={<ErrorPage error={loaderData.properties._error} />}
+						>
+							{(properties) =>
+								properties.data.data.length === 0
+									? "No Houses Found"
+									: properties?.data?.data?.map((property) => (
+											<HousesCard houses={property} key={property._id} />
+										))
+							}
+						</Await>
+					</Suspense>
 				</Grid>
 				<Grid
 					spacing={1}

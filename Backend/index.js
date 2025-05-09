@@ -11,11 +11,12 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Middlewares
-app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 
 // Routes
 app.use("/api", AuthRoutes);
@@ -24,5 +25,5 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/properties", PropertyRoutes);
 
 // Start Server
-const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

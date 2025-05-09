@@ -3,13 +3,12 @@ import { StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
-import HousesCard from "./HousesCard";
+import PropertyTypeCard from "./PropertyTypeCard";
 import { StyledAdvertismentCard, StyledHousesWrapper } from "./styled";
 import { DummyHousesData } from "./utils";
 
 const Houses = () => {
 	const loaderData = useLoaderData();
-	console.log("loaderData", loaderData);
 
 	return (
 		<StyledHousesWrapper>
@@ -18,7 +17,6 @@ const Houses = () => {
 				spacing={2}
 				sx={{
 					width: "100%",
-					// border: "1px solid green",
 					display: "flex",
 					justifyContent: "space-between",
 				}}
@@ -31,7 +29,6 @@ const Houses = () => {
 						display: "flex",
 						flexDirection: "column",
 						cursor: "pointer",
-						// border: "1px solid blue",
 					}}
 				>
 					<Suspense fallback={<div>Loading...</div>}>
@@ -43,7 +40,10 @@ const Houses = () => {
 								properties.data.data.length === 0
 									? "No Houses Found"
 									: properties?.data?.data?.map((property) => (
-											<HousesCard houses={property} key={property._id} />
+											<PropertyTypeCard
+												property={property}
+												key={property._id}
+											/>
 										))
 							}
 						</Await>

@@ -7,8 +7,11 @@ const action = async ({ request }) => {
 				const registeredData = await request.formData();
 
 				const response = await HouseRentalAPI.post(
-					"properties",
+					"properties/",
 					registeredData,
+					{
+						withCredentials: true,
+					},
 				);
 				return {
 					error: null,

@@ -15,6 +15,7 @@ export const BlogsCardWrapper = styled(Grid)(({ theme }) => ({
 	boxShadow: theme.shadows[1],
 	padding: "14px",
 	width: "300px",
+	display: "flex",
 	cursor: "pointer",
 	transition: "all 0.3s ease",
 

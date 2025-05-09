@@ -1,5 +1,5 @@
 const Plots = () => {
-	return <div>Plots</div>;
+	return <div>Plots here</div>;
 };
 
 export default Plots;

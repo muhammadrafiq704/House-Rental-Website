@@ -1,6 +1,19 @@
+import { HouseRentalAPI } from "@/api/HouseRental";
+import { defer } from "react-router-dom";
+
 const loader = async () => {
-	console.log("Loader running...");
-	return null; // or return your data
+	try {
+		const propertiesPromise = HouseRentalAPI.get("properties");
+
+		return defer({
+			properties: propertiesPromise,
+		});
+	} catch (error) {
+		return {
+			error: true,
+			message: error.response?.data?.message,
+		};
+	}
 };
 
 export default loader;

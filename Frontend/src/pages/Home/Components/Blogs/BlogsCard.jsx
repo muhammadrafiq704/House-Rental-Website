@@ -1,5 +1,6 @@
 import UIButton from "@/components/Button/UIButton";
 import { FlexBetween, StyledTypography } from "@/styled";
+import { ImageGettingURL } from "@/utils/ImageGettingURL";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { BlogsCardWrapper } from "./styled";
 
@@ -12,23 +13,34 @@ const BlogsCard = ({ items }) => {
 	return (
 		<BlogsCardWrapper>
 			<FlexBetween gap={10} direction="column">
-				<img src={items.img} alt="blogs-img" />
+				<img
+					src={ImageGettingURL(items.file[0])}
+					alt="blogs-img"
+					style={{
+						width: 270,
+						height: 200,
+						objectFit: "fit",
+					}}
+				/>
 				<StyledTypography
-					fs={1}
+					fs={1.1}
 					styletype="default"
 					maxlines={1}
 					sx={{ textTransform: "capitalize" }}
 				>
-					{items.title}
+					{items.property_type}
 				</StyledTypography>
 				<StyledTypography fs={0.9} styletype="default" maxlines={2}>
 					{items.desc}
+				</StyledTypography>
+				<StyledTypography fs={0.9} styletype="default" fw={600}>
+					PKR.{items.price}
 				</StyledTypography>
 				<UIButton
 					label="Read More"
 					variant="contained"
 					isLoading={isLoading}
-					onClick={() => navigate(`/blogs-details/${items.id}`)}
+					onClick={() => navigate(`/blogs-details/${items._id}`)}
 				/>
 			</FlexBetween>
 		</BlogsCardWrapper>

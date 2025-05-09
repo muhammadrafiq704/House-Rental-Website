@@ -26,7 +26,13 @@ const AppLayout = () => {
 					<Box sx={{ display: "flex", alignItems: "center", gap: "22px" }}>
 						{HeaderData.map((head) => (
 							<StyledNavlink
-								to={head.href}
+								to={
+									head.title === "Home" ||
+									head.title === "About Us" ||
+									head.title === "Contact Us"
+										? head.href
+										: `/${head.title.toLowerCase()}`
+								}
 								key={head.id}
 								style={({ isActive }) => ({
 									fontSize: isActive ? "18px" : "16px",

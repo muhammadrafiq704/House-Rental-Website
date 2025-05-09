@@ -31,11 +31,14 @@ const appRoutes = (
 		<Route element={<AppLayout />}>
 			<Route index lazy={() => import("@/pages/Home")} />
 			<Route path={appPaths.ABOUT_US} lazy={() => import("@/pages/AboutUS")} />
-			<Route path={appPaths.HOUSES} lazy={() => import("@/pages/Houses")} />
-			{/* <Route
-				path={appPaths.BLOGS} 
-				lazy={() => import("@/pages/Home/Components/Blogs")}
-			/> */}
+			<Route
+				path={appPaths.PROPERTY_TYPE}
+				lazy={() => import("@/pages/PropertyType")}
+			/>
+			<Route
+				path={appPaths.PROPERTY_DETAILS}
+				lazy={() => import("@/pages/PropertyTypeDetails")}
+			/>
 			<Route
 				path={appPaths.BLOGS_DETAILS}
 				lazy={() => import("@/pages/BlogsDetails")}
@@ -44,7 +47,6 @@ const appRoutes = (
 				path={appPaths.CONTACT_US}
 				lazy={() => import("@/pages/ContactUs")}
 			/>
-			{/* <Route path={appPaths.PLOTS} lazy={() => import("@/pages/Plots")} /> */}
 			<Route
 				path={appPaths.PROPERTY_REGISTER}
 				lazy={() => import("@/pages/HouseRegister")}

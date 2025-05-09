@@ -1,14 +1,15 @@
 import { Box, styled } from "@mui/material";
 
-export const BlogsDetailsWrapper = styled(Box)(({ theme }) => ({
-	display: "flex",
-	alignItems: "flex-start",
-	gap: "40px",
-	padding: "20px",
+export const StyledPropertyDetailsWrapper = styled(Box)(({ theme }) => ({
 	width: "100%",
-	border: "1px solid red",
+	display: "flex",
+	gap: "40px",
+	marginBottom: "20px",
+	padding: "20px",
+
 	"& img": {
-		width: "100%",
+		width: "800px",
+		height: "400px",
 		borderRadius: theme.shape.customRadius.halfRounded,
 	},
 }));

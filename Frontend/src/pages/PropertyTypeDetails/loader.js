@@ -3,10 +3,12 @@ import { defer } from "react-router-dom";
 
 const loader = async ({ params }) => {
 	try {
-		const id = params.id;
-		const blogs_details = HouseRentalAPI.get(`blogs/${id}`);
+		console.log("params", params);
+		const { id } = params;
+		const properties_details = HouseRentalAPI.get(`properties/property/${id}`);
+
 		return defer({
-			blogs_details,
+			properties_details: properties_details,
 		});
 	} catch (error) {
 		return {

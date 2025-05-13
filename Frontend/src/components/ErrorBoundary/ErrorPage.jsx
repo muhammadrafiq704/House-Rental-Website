@@ -7,9 +7,17 @@ const ErrorPage = ({ error }) => {
 		error?.response?.data?.message ||
 		error?.message ||
 		"Unexpected error occurred";
+	const statusCode = error?.status;
 
 	return (
 		<Box sx={{ textAlign: "center", mt: 4 }}>
+			<StyledTypography
+				fs={1.2}
+				styletype="default"
+				sx={{ fontStyle: "italic" }}
+			>
+				{statusCode}
+			</StyledTypography>
 			<StyledTypography
 				fs={1.2}
 				styletype="default"

@@ -21,7 +21,7 @@ const ContactUs = () => {
 				{contactData.map((contact) => (
 					<Box
 						key={contact.id}
-						sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+						sx={{ display: "flex", alignItems: "center", gap: "10px", pl: 2 }}
 					>
 						<img src={contact.icon} alt="icon" />
 						<StyledTypography fs={1} styletype="default" light>

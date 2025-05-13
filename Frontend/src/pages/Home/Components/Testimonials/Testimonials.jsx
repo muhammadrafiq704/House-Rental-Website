@@ -14,11 +14,12 @@ const Testimonials = () => {
 					gap: "2px",
 				}}
 			>
-				<StyledTypography fs={2.2} styletype="default">
-					What Our Clients Says! <hr />
-				</StyledTypography>
 				<StyledTypography fs={0.9} styletype="default">
-					Customers share comfort, ideas about our services
+					We are committed to making our clients happy with our services
+					<hr />
+				</StyledTypography>
+				<StyledTypography fs={2.2} styletype="default">
+					What Our Clients Says!
 				</StyledTypography>
 			</Box>
 			<TestimonialsCard />

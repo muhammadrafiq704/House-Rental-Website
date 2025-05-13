@@ -1,10 +1,15 @@
 export const AboutData = [
-	{ id: 1, title: "", icon: "icon" },
-	{ id: 3, title: "sameerbalti704@gmail.com", icon: "icon" },
+	{ id: 1, title: "Services 1" },
+	{ id: 2, title: "Services 2" },
 	{
-		id: 2,
-		title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-		icon: "icon",
+		id: 3,
+		title: "Services 3",
 	},
-	{ id: 4, title: "05816 9090890", icon: "icon" },
+	{ id: 4, title: "Services 4" },
+	{ id: 4, title: "Services 5" },
+	{ id: 4, title: "Services 6" },
+	{ id: 4, title: "Services 7" },
+	{ id: 4, title: "Services 8" },
+	{ id: 4, title: "Services 9" },
+	{ id: 4, title: "Services 10" },
 ];

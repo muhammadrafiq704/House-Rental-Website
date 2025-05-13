@@ -22,11 +22,12 @@ const Blogs = () => {
 					gap: "4px",
 				}}
 			>
-				<StyledTypography fs={2.2} styletype="default" fw={500}>
-					Recent Blogs <hr />
-				</StyledTypography>
 				<StyledTypography fs={0.9} styletype="default" fw={500}>
 					Customers trust us to sell, purchase, and rent their properties.
+					<hr />
+				</StyledTypography>
+				<StyledTypography fs={2.2} styletype="default" fw={500}>
+					Recent Blogs
 				</StyledTypography>
 			</Box>
 

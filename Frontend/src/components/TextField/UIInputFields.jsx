@@ -24,7 +24,7 @@ const UIInputFields = ({
 								type="file"
 								id={`file-${name}`}
 								multiple
-								accept="image/*"
+								accept={props.accept || "image/*"}
 								style={{ display: "none" }}
 								onChange={(e) => field.onChange(e.target.files)}
 								ref={field.ref}
@@ -69,6 +69,7 @@ const UIInputFields = ({
 						{...field}
 						type={type}
 						placeholder={placeholder}
+						inputProps={{ min: 0 }}
 						error={!!fieldState.error}
 						helperText={fieldState.error?.message}
 						{...props}

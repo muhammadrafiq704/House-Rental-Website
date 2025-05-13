@@ -1,4 +1,3 @@
-import ErrorPage from "@/components/ErrorBoundary";
 import { StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
 import { Suspense } from "react";
@@ -7,9 +6,8 @@ import PropertyTypeCard from "./PropertyTypeCard";
 import { StyledAdvertismentCard, StyledHousesWrapper } from "./styled";
 import { DummyHousesData } from "./utils";
 
-const Houses = () => {
+const PropertyType = () => {
 	const loaderData = useLoaderData();
-
 	return (
 		<StyledHousesWrapper>
 			<Grid
@@ -23,19 +21,16 @@ const Houses = () => {
 			>
 				<Grid
 					item
-					spacing={1}
+					size="grow"
 					sx={{
-						width: "60%",
+						// width: "60%",
 						display: "flex",
 						flexDirection: "column",
 						cursor: "pointer",
 					}}
 				>
 					<Suspense fallback={<div>Loading...</div>}>
-						<Await
-							resolve={loaderData.properties}
-							errorElement={<ErrorPage error={loaderData.properties._error} />}
-						>
+						<Await resolve={loaderData.properties}>
 							{(properties) =>
 								properties.data.data.length === 0
 									? "No Houses Found"
@@ -113,4 +108,4 @@ const Houses = () => {
 	);
 };
 
-export default Houses;
+export default PropertyType;

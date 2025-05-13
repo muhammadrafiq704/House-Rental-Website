@@ -1,4 +1,4 @@
-import { social_icons } from "@/assets";
+import { icons, social_icons } from "@/assets";
 import UIIconButton from "@/components/Button/UIIconButton";
 import { FlexBetween, StyledNavlink, StyledTypography } from "@/styled";
 import { FooterData } from "../utils/FooterData";
@@ -57,14 +57,29 @@ const Footer = () => {
 			</FooterContact>
 			<FooterContactInfo>
 				<FlexBetween gap={10} direction="column">
-					<StyledTypography fs={1} styletype="default">
-						Phone: +92 3487753039
+					<StyledTypography
+						fs={1}
+						styletype="default"
+						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+					>
+						<img src={icons.phone_call} alt="icon" width={18} height={18} /> +92
+						3487753039
 					</StyledTypography>
-					<StyledTypography fs={1} styletype="default">
-						Email: dummy@gmail.com
+					<StyledTypography
+						fs={1}
+						styletype="default"
+						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+					>
+						<img src={icons.email} alt="icon" width={18} height={18} />{" "}
+						dummy@gmail.com
 					</StyledTypography>
-					<StyledTypography fs={1} styletype="default">
-						WhatsApp: +92 3487753039
+					<StyledTypography
+						fs={1}
+						styletype="default"
+						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+					>
+						<img src={icons.location} alt="icon" /> DBA Building Near Hameed
+						Ghard, Skardu
 					</StyledTypography>
 				</FlexBetween>
 			</FooterContactInfo>

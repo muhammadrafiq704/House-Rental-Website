@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { toast } from "react-toastify";
 import { HouseRegisterWrapper } from "./styled";
+import { dummyAreaUnitData, dummyData, dummyPurposeData } from "./utils";
 
 const HouseRegister = () => {
 	const submit = useSubmit();
@@ -24,12 +25,20 @@ const HouseRegister = () => {
 
 	const houseRegisterForm = useForm({
 		defaultValues: {
+			purpose: "",
 			property_type: "",
 			file: "",
 			desc: "",
+			city: "",
 			location: "",
 			price: "",
-			final_price: "",
+			area_amount: "",
+			area_unit: "",
+			room: "",
+			bedroom: "",
+			kitchen: "",
+			contact_no: "",
+			bathroom: "",
 			message: "",
 		},
 	});
@@ -70,18 +79,21 @@ const HouseRegister = () => {
 		}
 	}, [actionData, reset]);
 
-	const dummyData = [
-		{ id: 1, label: "House", value: "house" },
-		{ id: 2, label: "Plot", value: "plot" },
-		{ id: 3, label: "Apartment", value: "apartment" },
-		{ id: 4, label: "Room", value: "rooms" },
-		{ id: 5, label: "Shop", value: "shop" },
-		{ id: 6, label: "Other", value: "other" },
-	];
-
 	return (
 		<HouseRegisterWrapper>
 			<form onSubmit={houseRegisterForm.handleSubmit(onSubmit)}>
+				<UISelect
+					name="purpose"
+					placeholder="Select your purpose"
+					control={houseRegisterForm.control}
+					data={dummyPurposeData}
+					rules={{
+						required: "Purpose is required",
+					}}
+					sx={{ mt: "1em" }}
+					fullWidth
+					type="text"
+				/>
 				<UISelect
 					name="property_type"
 					placeholder="Select property type"
@@ -99,13 +111,155 @@ const HouseRegister = () => {
 					placeholder="Choose image"
 					control={houseRegisterForm.control}
 					rules={{
-						required: "Image is required",
+						required: "File is required",
+						validate: (files) => {
+							if (!files || files.length === 0) return "Please select a file.";
+
+							for (const file of files) {
+								const isImage = file.type.startsWith("image/");
+								const isVideo = file.type.startsWith("video/");
+
+								const validImageTypes = [
+									"image/png",
+									"image/jpeg",
+									"image/jpg",
+								];
+								const validVideoTypes = ["video/mp4"];
+								if (
+									(isImage && !validImageTypes.includes(file.type)) ||
+									(isVideo && !validVideoTypes.includes(file.type))
+								) {
+									return "Only JPG, PNG images and MP4 videos are allowed.";
+								}
+
+								if (file.size > 1 * 1024 * 1024) {
+									return "Each file must be less than or equal to 1MB.";
+								}
+							}
+
+							return true;
+						},
 					}}
 					sx={{ mt: "1em" }}
 					fullWidth
 					type="file"
 					multiple
-					accept="image/*"
+					accept="image/png, image/jpeg, image/jpg, video/mp4"
+				/>
+				<UIInputFields
+					name="city"
+					placeholder="Enter city"
+					control={houseRegisterForm.control}
+					rules={{
+						required: "description is required",
+					}}
+					sx={{ mt: "1em" }}
+					fullWidth
+					type="text"
+				/>
+				<UIInputFields
+					name="location"
+					placeholder="Enter nearby location"
+					control={houseRegisterForm.control}
+					rules={{
+						required: "location is required",
+					}}
+					sx={{ mt: "1em" }}
+					fullWidth
+					type="text"
+				/>
+				<UIInputFields
+					name="price"
+					placeholder="Enter rental, selling price in PKR"
+					control={houseRegisterForm.control}
+					rules={{
+						required: "price is required",
+						validate: (value) =>
+							Number.parseFloat(value) >= 0 || "Value cannot be negative",
+					}}
+					sx={{ mt: "1em" }}
+					fullWidth
+					type="number"
+				/>
+				<Box sx={{ width: "100%", display: "flex", gap: "10px" }}>
+					<UIInputFields
+						name="area_amount"
+						placeholder="Enter area Square Feet hint: (12-12)"
+						control={houseRegisterForm.control}
+						rules={{
+							required: "area is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						type="number"
+					/>
+					<UISelect
+						name="area_unit"
+						placeholder="Select unit"
+						control={houseRegisterForm.control}
+						data={dummyAreaUnitData}
+						rules={{
+							required: "Purpose is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						type="text"
+					/>
+				</Box>
+				<Box sx={{ display: "flex", gap: "10px", width: "100%" }}>
+					<UIInputFields
+						name="room"
+						placeholder="Enter number of rooms"
+						control={houseRegisterForm.control}
+						rules={{
+							required: "rooms is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						fullWidth
+						type="number"
+					/>
+					<UIInputFields
+						name="bedroom"
+						placeholder="Enter number of bedrooms"
+						control={houseRegisterForm.control}
+						rules={{
+							required: "Bedroom is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						fullWidth
+						type="number"
+					/>
+					<UIInputFields
+						name="bathroom"
+						placeholder="Enter number of bathrooms"
+						control={houseRegisterForm.control}
+						rules={{
+							required: "Bathrooms is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						fullWidth
+						type="number"
+					/>
+					<UIInputFields
+						name="kitchen"
+						placeholder="Enter number of kitchen"
+						control={houseRegisterForm.control}
+						rules={{
+							required: "kitchen is required",
+						}}
+						sx={{ mt: "1em", flex: 1 }}
+						fullWidth
+						type="number"
+					/>
+				</Box>
+				<UIInputFields
+					name="contact_no"
+					placeholder="Enter contact number(WhastApp)"
+					control={houseRegisterForm.control}
+					rules={{
+						required: "contact number is required",
+					}}
+					sx={{ mt: "1em" }}
+					fullWidth
+					type="text"
 				/>
 				<UIInputFields
 					name="desc"
@@ -117,39 +271,6 @@ const HouseRegister = () => {
 					sx={{ mt: "1em" }}
 					fullWidth
 					type="text"
-				/>
-				<UIInputFields
-					name="location"
-					placeholder="Enter location"
-					control={houseRegisterForm.control}
-					rules={{
-						required: "location is required",
-					}}
-					sx={{ mt: "1em" }}
-					fullWidth
-					type="text"
-				/>
-				<UIInputFields
-					name="price"
-					placeholder="Enter rental, selling price"
-					control={houseRegisterForm.control}
-					rules={{
-						required: "price is required",
-					}}
-					sx={{ mt: "1em" }}
-					fullWidth
-					type="number"
-				/>
-				<UIInputFields
-					name="final_price"
-					placeholder="Enter final rental, selling price"
-					control={houseRegisterForm.control}
-					rules={{
-						required: "final price is required",
-					}}
-					sx={{ mt: "1em" }}
-					fullWidth
-					type="number"
 				/>
 				<UIInputFields
 					name="message"

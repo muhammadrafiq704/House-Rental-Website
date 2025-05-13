@@ -72,10 +72,10 @@ const Form = () => {
 					label="Submit"
 					type="submit"
 					variant="contained"
-					sx={{ width: "200px" }}
+					sx={{ width: "200px", mt: 1 }}
 				/>
 			</form>
-			<StyledTypography fs={1.1} styletype="default" fw={500}>
+			<StyledTypography fs={1.1} styletype="default" fw={600}>
 				Our Social
 			</StyledTypography>
 			<Box

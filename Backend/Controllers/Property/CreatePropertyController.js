@@ -2,18 +2,11 @@ import Property from "../../Models/PropertyModel.js";
 
 export const createProperty = async (req, res) => {
 	try {
-		const { property_type, desc, location, price, final_price, message } =
-			req.body;
-
+		const registeredData = req.body;
 		const files = req.files?.map((file) => file.filename) || [];
 
 		const newProperty = new Property({
-			property_type,
-			desc,
-			location,
-			price,
-			final_price,
-			message,
+			...registeredData,
 			file: files,
 		});
 

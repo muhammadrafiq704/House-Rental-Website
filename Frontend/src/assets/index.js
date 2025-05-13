@@ -10,11 +10,18 @@ import next from "@/assets/images/button/next.png";
 import card_img from "@/assets/images/Home/hero.jpeg";
 //images
 import hero from "@/assets/images/Home/hero.jpg";
+import owner1 from "@/assets/images/Owners/owner1.jpg";
+import owner2 from "@/assets/images/Owners/owner2.jpg";
+import verified from "@/assets/images/Owners/verified.png";
 import boy from "@/assets/images/Testimonials/boy.png";
 import star from "@/assets/images/Testimonials/star.png";
 import woman from "@/assets/images/Testimonials/woman.png";
 
 import house from "@/assets/home-icon.png";
+import email from "@/assets/icons/Contact/email.png";
+import location from "@/assets/icons/Contact/location.png";
+import phone_call from "@/assets/icons/Contact/phone-call.png";
+import telephone from "@/assets/icons/Contact/telephone.png";
 //icons
 import right_up from "@/assets/icons/Home/right-up.png";
 import home from "@/assets/images/Category/home-icon.png";
@@ -42,6 +49,10 @@ export const icons = {
 	land,
 	residential,
 	store,
+	email,
+	location,
+	phone_call,
+	telephone,
 };
 export const images = {
 	hero,
@@ -49,4 +60,7 @@ export const images = {
 	woman,
 	boy,
 	star,
+	owner1,
+	owner2,
+	verified,
 };

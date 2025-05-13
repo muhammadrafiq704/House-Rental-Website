@@ -18,20 +18,38 @@ const Home = () => {
 					enim? Expedita, soluta magnam. Ducimus iste ea officiis odio aperiam
 					delectus alias voluptatem.
 				</StyledTypography>
-				<StyledTypography fs={1.5} fw={500} styletype="default">
+				<StyledTypography fs={1.5} fw={500} styletype="default" sx={{ mt: 1 }}>
 					Our Services
 				</StyledTypography>
-				{AboutData.map((contact) => (
-					<Box
-						key={contact.id}
-						sx={{ display: "flex", alignItems: "center", gap: "10px" }}
-					>
-						<img src={contact.icon} alt="icon" />
-						<StyledTypography fs={1} styletype="default" light>
-							{contact.title}
-						</StyledTypography>
-					</Box>
-				))}
+				<Box
+					sx={{
+						display: "flex",
+						flexWrap: "wrap",
+						justifyContent: "flex-start",
+						alignItems: "center",
+						columnGap: "20px",
+						rowGap: "10px",
+						width: "100%",
+						p: 1,
+					}}
+				>
+					{AboutData.map((contact) => (
+						<Box
+							key={contact.id}
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								border: "1px solid #006A71",
+								borderRadius: "50px",
+								p: 1,
+							}}
+						>
+							<StyledTypography fs={1} styletype="default" light>
+								{contact.title}
+							</StyledTypography>
+						</Box>
+					))}
+				</Box>
 			</Box>
 			<Box>
 				<img

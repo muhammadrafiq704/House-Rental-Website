@@ -12,7 +12,10 @@ const PropertyTypeCard = ({ property }) => {
 	return (
 		<StyledHousesCardWrapper>
 			<Grid container sx={{ display: "flex", gap: "20px", p: 1 }}>
-				<Grid sx={{ display: "flex", alignItems: "center" }}>
+				<Grid
+					sx={{ display: "flex", alignItems: "center" }}
+					size={{ md: 4, xl: 6, sm: 3 }}
+				>
 					{" "}
 					<img
 						src={ImageGettingURL(property.file[0])}
@@ -22,11 +25,12 @@ const PropertyTypeCard = ({ property }) => {
 					/>
 				</Grid>
 				<Grid
+					size={{ md: 7, xl: 6, sm: 3 }}
 					sx={{
 						width: "60%",
 						display: "flex",
 						flexDirection: "column",
-						gap: "10px",
+						gap: "16px",
 					}}
 				>
 					<StyledTypography
@@ -41,61 +45,107 @@ const PropertyTypeCard = ({ property }) => {
 						fs={0.9}
 						styletype="default"
 						light
-						maxlines={3}
+						maxlines={2}
 						sx={{ textTransform: "capitalize" }}
 					>
 						{property.desc}
 					</StyledTypography>
-					<StyledTypography
-						fs={0.9}
-						styletype="default"
-						light
-						maxlines={3}
-						fw={600}
+					<Box
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "space-between",
+							gap: "10px",
+						}}
 					>
-						PKR {property.price}
-					</StyledTypography>
-					<StyledTypography
-						fs={0.9}
-						styletype="default"
-						light
-						maxlines={3}
-						fw={600}
-						sx={{ textTransform: "capitalize" }}
-					>
-						{property.location}
-					</StyledTypography>
-					{/* <Box sx={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            {houses?.features.length === 0
-              ? "No Features listed"
-              : houses.features.map((feature) => (
-                  <>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        gap: "6px",
-                      }}
-                      key={feature.id}
-                    >
-                      <img
-                        src={feature.icon}
-                        alt="icon"
-                        width={28}
-                        height={28}
-                      />
-                      <StyledTypography
-                        styletype="default"
-                        fs={0.8}
-                        fw={600}
-                        light
-                      >
-                        {feature.title}
-                      </StyledTypography>
-                    </Box>
-                  </>
-                ))}
-          </Box> */}
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							maxlines={2}
+							fw={600}
+						>
+							PKR <strong>{property.price}</strong>
+						</StyledTypography>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							maxlines={3}
+							fw={600}
+							sx={{
+								textTransform: "capitalize",
+								display: "flex",
+								alignItems: "center",
+								gap: "4px",
+							}}
+						>
+							<img src={icons.location} alt="icon" style={{ width: "18px" }} />{" "}
+							{property.location}
+						</StyledTypography>
+					</Box>
+					<Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							fw={600}
+							sx={{
+								textTransform: "capitalize",
+								display: "flex",
+								alignItems: "center",
+								gap: "6px",
+							}}
+						>
+							<img src={icons.room} alt="icon" style={{ width: "24px" }} />
+							{property.bedroom ? property.bedroom : 0} Bedroom
+						</StyledTypography>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							fw={600}
+							sx={{
+								textTransform: "capitalize",
+								display: "flex",
+								alignItems: "center",
+								gap: "6px",
+							}}
+						>
+							<img src={icons.room} alt="icon" style={{ width: "24px" }} />
+							{property.room ? property.room : 0} Rooms
+						</StyledTypography>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							fw={600}
+							sx={{
+								textTransform: "capitalize",
+								display: "flex",
+								alignItems: "center",
+								gap: "6px",
+							}}
+						>
+							<img src={icons.room} alt="icon" style={{ width: "24px" }} />
+							{property.kitchen ? property.kitchen : 0} Kitchen
+						</StyledTypography>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							fw={600}
+							sx={{
+								textTransform: "capitalize",
+								display: "flex",
+								alignItems: "center",
+								gap: "6px",
+							}}
+						>
+							<img src={icons.room} alt="icon" style={{ width: "24px" }} />
+							{property.bathroom ? property.bathroom : 0} Bathroom
+						</StyledTypography>
+					</Box>
 					<UIButton
 						variant="contained"
 						label="Read More"

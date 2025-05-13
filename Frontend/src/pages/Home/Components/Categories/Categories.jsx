@@ -14,11 +14,12 @@ const Categories = () => {
 					gap: "2px",
 				}}
 			>
-				<StyledTypography fs={2.2} styletype="default" fw={500}>
-					Our Services <hr />
-				</StyledTypography>
 				<StyledTypography fs={0.9} styletype="default" fw={500}>
 					Services we provide for customers satisfaction
+					<hr />
+				</StyledTypography>
+				<StyledTypography fs={2.2} styletype="default" fw={500}>
+					Our Services
 				</StyledTypography>
 			</Box>
 			<CategoriesCard />

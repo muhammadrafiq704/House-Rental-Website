@@ -12,7 +12,7 @@ const appRoutes = (
 		element={<App />}
 		errorElement={<ErrorBoundary />}
 	>
-		{/* <Route element={<PublicRoutes />}> */}
+		{/* <Rouste element={<PublicRoutes />}> */}
 		<Route element={<AuthLayout />}>
 			<Route
 				path={appPaths.SIGN_IN}

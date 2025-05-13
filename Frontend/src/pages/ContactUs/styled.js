@@ -17,5 +17,5 @@ export const FormWrapper = styled(Box)(({ theme }) => ({
 	flexDirection: "column",
 	justifyContent: "center",
 	alignItems: "center",
-	gap: "20px",
+	gap: "10px",
 }));

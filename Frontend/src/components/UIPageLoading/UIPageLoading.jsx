@@ -5,7 +5,7 @@ const UIPageLoading = () => {
 	return (
 		<UIPageLoadingWrapper>
 			<StyledTypography styletype="default" fs={1.1} fw={600}>
-				House Rental Webiste
+				BrangSaa
 			</StyledTypography>
 		</UIPageLoadingWrapper>
 	);

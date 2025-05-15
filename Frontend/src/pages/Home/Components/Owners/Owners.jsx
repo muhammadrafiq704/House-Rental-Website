@@ -18,7 +18,7 @@ const Owners = () => {
 					Highlight the most popular owners
 					<hr />
 				</StyledTypography>
-				<StyledTypography fs={2.2} styletype="default" fw={500}>
+				<StyledTypography fs={1.8} styletype="default" fw={650}>
 					Verified Owners
 				</StyledTypography>
 			</Box>

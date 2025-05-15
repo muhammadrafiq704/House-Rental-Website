@@ -26,6 +26,7 @@ const SignUp = () => {
 			</StyledFormWrapper>
 			<StyledLinkWrapper>
 				<StyledTypography
+					styletype="default"
 					fs={1}
 					sx={{ textAlign: "center", padding: "0 30px 0 30px" }}
 				>
@@ -47,7 +48,13 @@ const SignUp = () => {
 					/>
 					<UIIconButton
 						variant="outlined"
-						icon={social_icons.twitter}
+						icon={social_icons.instagram}
+						imgW={24}
+						imgH={24}
+					/>
+					<UIIconButton
+						variant="outlined"
+						icon={social_icons.pinterest}
 						imgW={24}
 						imgH={24}
 					/>

@@ -18,7 +18,7 @@ const Testimonials = () => {
 					We are committed to making our clients happy with our services
 					<hr />
 				</StyledTypography>
-				<StyledTypography fs={2.2} styletype="default">
+				<StyledTypography fs={1.8} styletype="default" fw={650}>
 					What Our Clients Says!
 				</StyledTypography>
 			</Box>

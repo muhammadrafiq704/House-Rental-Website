@@ -1,6 +1,8 @@
 //social links icons
 import facebook from "@/assets/images/singin/facebook.png";
+import instagram from "@/assets/images/singin/instagram.png";
 import linkedIn from "@/assets/images/singin/linkedin.png";
+import pinterest from "@/assets/images/singin/pinterest.png";
 import twitter from "@/assets/images/singin/twitter.png";
 import whatsapp from "@/assets/whatsapp.png";
 
@@ -8,6 +10,10 @@ import whatsapp from "@/assets/whatsapp.png";
 import next from "@/assets/images/button/next.png";
 
 import card_img from "@/assets/images/Home/hero.jpeg";
+
+import bedroom from "@/assets/images/Category/bedroom.jpg";
+import kitchen from "@/assets/images/Category/kitchen.jpg";
+import large_home from "@/assets/images/Category/large-home.jpg";
 //images
 import hero from "@/assets/images/Home/hero.jpg";
 import owner1 from "@/assets/images/Owners/owner1.jpg";
@@ -22,6 +28,7 @@ import email from "@/assets/icons/Contact/email.png";
 import location from "@/assets/icons/Contact/location.png";
 import phone_call from "@/assets/icons/Contact/phone-call.png";
 import telephone from "@/assets/icons/Contact/telephone.png";
+
 //icons
 import right_up from "@/assets/icons/Home/right-up.png";
 import home from "@/assets/images/Category/home-icon.png";
@@ -36,6 +43,8 @@ export const social_icons = {
 	linkedIn,
 	twitter,
 	whatsapp,
+	instagram,
+	pinterest,
 };
 export const button_icons = {
 	next,
@@ -63,4 +72,7 @@ export const images = {
 	owner1,
 	owner2,
 	verified,
+	bedroom,
+	kitchen,
+	large_home,
 };

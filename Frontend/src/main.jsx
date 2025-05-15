@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { ToastContainer, Zoom } from "react-toastify";
 import UIPageLoading from "./components/UIPageLoading/UIPageLoading";
+import { AuthProvider } from "./context/AuthContext";
 
 const root = document.getElementById("root");
 
@@ -22,21 +23,23 @@ const router = createBrowserRouter(createRoutesFromElements(appRoutes));
 createRoot(root).render(
 	<StrictMode>
 		<ThemeProvider theme={appTheme}>
-			<CssBaseline enableColorScheme />
-			<ToastContainer
-				position="top-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick={false}
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="dark"
-				transition={Zoom}
-			/>
-			<RouterProvider router={router} fallbackElement={<UIPageLoading />} />
+			<AuthProvider>
+				<CssBaseline enableColorScheme />
+				<ToastContainer
+					position="top-right"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick={false}
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="dark"
+					transition={Zoom}
+				/>
+				<RouterProvider router={router} fallbackElement={<UIPageLoading />} />
+			</AuthProvider>
 		</ThemeProvider>
 	</StrictMode>,
 );

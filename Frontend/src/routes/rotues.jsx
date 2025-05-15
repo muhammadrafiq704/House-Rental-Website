@@ -44,6 +44,7 @@ const appRoutes = (
 					path={appPaths.PROPERTY_DETAILS}
 					lazy={() => import("@/pages/PropertyTypeDetails")}
 				/>
+				<Route path={appPaths.BLOGS} lazy={() => import("@/pages/Blogs")} />
 				<Route
 					path={appPaths.BLOGS_DETAILS}
 					lazy={() => import("@/pages/BlogsDetails")}

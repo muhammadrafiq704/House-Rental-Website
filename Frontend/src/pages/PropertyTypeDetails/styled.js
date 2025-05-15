@@ -6,7 +6,7 @@ export const StyledPropertyDetailsWrapper = styled(Box)(({ theme }) => ({
 	gap: "40px",
 	marginBottom: "20px",
 	padding: "20px",
-
+	border: "1px solid red",
 	"& img": {
 		width: "800px",
 		height: "400px",

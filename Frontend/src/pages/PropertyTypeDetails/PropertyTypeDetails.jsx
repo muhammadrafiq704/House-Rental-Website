@@ -14,19 +14,23 @@ const PropertyTypeDetails = () => {
 
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
+
 	return (
 		<StyledPropertyDetailsWrapper>
 			<Suspense fallback={<div>Loading...</div>}>
-				<Await resolve={loaderData.properties_details}>
+				<Await resolve={loaderData.properties_detail}>
 					{(properties_details) => {
 						const property = properties_details?.data?.data || {};
 						console.log("property", property);
 						return !property ? (
 							"No details found"
 						) : (
-							// <PropertyDetailsWrapper>
 							<>
-								<img src={ImageGettingURL(property.file)} alt="cover-img" />
+								<img
+									src={ImageGettingURL(property.file)}
+									alt="cover-img"
+									style={{ objectFit: "cover" }}
+								/>
 								<Box
 									sx={{
 										display: "flex",
@@ -34,22 +38,29 @@ const PropertyTypeDetails = () => {
 										width: "100%",
 									}}
 								>
-									<StyledTypography fs={2.2} fw={600} styletype="default">
+									<StyledTypography
+										fs={2}
+										fw={600}
+										styletype="default"
+										sx={{ textTransform: "capitalize" }}
+									>
 										{property.property_type}
 									</StyledTypography>
-									<StyledTypography fs={1.1} styletype="default" maxlines={4}>
-										{property.desc}
-									</StyledTypography>
-									<StyledTypography fs={1.1} styletype="default" maxlines={4}>
-										{property.message}
-									</StyledTypography>
 									<StyledTypography
-										fs={1}
+										fs={1.1}
 										styletype="default"
-										pt={2}
-										maxlines={3}
+										maxlines={4}
+										sx={{ textTransform: "capitalize" }}
 									>
 										{property.desc}
+									</StyledTypography>
+									<StyledTypography
+										fs={1.1}
+										styletype="default"
+										maxlines={4}
+										sx={{ textTransform: "capitalize" }}
+									>
+										{property.message}
 									</StyledTypography>
 									<UIButton
 										label="Chat Now"
@@ -74,7 +85,6 @@ const PropertyTypeDetails = () => {
 										}}
 									/>
 								</Box>
-								{/* // </PropertyDetailsWrapper> */}
 							</>
 						);
 					}}

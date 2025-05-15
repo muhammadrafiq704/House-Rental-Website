@@ -17,7 +17,6 @@ const appPaths = {
 	BLOGS: "/blogs",
 	BLOGS_DETAILS: "/blogs-details/:id",
 
-	CATEGORIES_DETAILS: "/categories/:title",
 	ERROR: "/error",
 
 	//house register

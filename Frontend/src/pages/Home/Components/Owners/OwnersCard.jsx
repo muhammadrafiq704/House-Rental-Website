@@ -8,7 +8,7 @@ const OwnersCard = () => {
 	//   const visibleOwners = dummyOwners.slice(0, 4);
 
 	return (
-		<Grid container spacing={2} sx={{ pl: 2, pr: 2 }}>
+		<Grid container spacing={2} sx={{ pl: 2, pr: 2, mt: 1 }}>
 			{dummyOwners?.map((owner) => (
 				<StyledGrid size={{ xl: 6, md: 4, sm: 8 }} key={owner.id}>
 					<Box

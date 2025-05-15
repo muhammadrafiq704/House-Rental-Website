@@ -6,7 +6,10 @@ const action = async ({ request }) => {
 		console.log("requestedData", requestedData);
 		switch (request.method) {
 			case "POST": {
-				const response = await HouseRentalAPI.post("register", requestedData);
+				const response = await HouseRentalAPI.post(
+					"auth/register",
+					requestedData,
+				);
 				console.log("response", response);
 				return {
 					error: null,

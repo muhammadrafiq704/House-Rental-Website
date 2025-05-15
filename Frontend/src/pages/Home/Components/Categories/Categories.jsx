@@ -18,8 +18,8 @@ const Categories = () => {
 					Services we provide for customers satisfaction
 					<hr />
 				</StyledTypography>
-				<StyledTypography fs={2.2} styletype="default" fw={500}>
-					Our Services
+				<StyledTypography fs={1.8} styletype="default" fw={650}>
+					Best Places for Rent
 				</StyledTypography>
 			</Box>
 			<CategoriesCard />

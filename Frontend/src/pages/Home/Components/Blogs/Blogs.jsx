@@ -26,7 +26,7 @@ const Blogs = () => {
 					Customers trust us to sell, purchase, and rent their properties.
 					<hr />
 				</StyledTypography>
-				<StyledTypography fs={2.2} styletype="default" fw={500}>
+				<StyledTypography fs={1.8} styletype="default" fw={650}>
 					Recent Blogs
 				</StyledTypography>
 			</Box>

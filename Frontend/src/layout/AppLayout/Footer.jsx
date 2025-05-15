@@ -49,18 +49,29 @@ const Footer = () => {
 					/>
 					<UIIconButton
 						variant="outlined"
-						icon={social_icons.twitter}
+						icon={social_icons.instagram}
+						imgW={24}
+						imgH={24}
+					/>
+					<UIIconButton
+						variant="outlined"
+						icon={social_icons.pinterest}
 						imgW={24}
 						imgH={24}
 					/>
 				</FlexBetween>
 			</FooterContact>
 			<FooterContactInfo>
-				<FlexBetween gap={10} direction="column">
+				<FlexBetween gap={12} direction="column">
 					<StyledTypography
 						fs={1}
 						styletype="default"
-						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							gap: "8px",
+							cursor: "pointer",
+						}}
 					>
 						<img src={icons.phone_call} alt="icon" width={18} height={18} /> +92
 						3487753039
@@ -68,15 +79,38 @@ const Footer = () => {
 					<StyledTypography
 						fs={1}
 						styletype="default"
-						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							gap: "8px",
+							cursor: "pointer",
+						}}
 					>
-						<img src={icons.email} alt="icon" width={18} height={18} />{" "}
-						dummy@gmail.com
+						<img src={icons.phone_call} alt="icon" width={18} height={18} /> +92
+						3488107134
 					</StyledTypography>
 					<StyledTypography
 						fs={1}
 						styletype="default"
-						sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							gap: "8px",
+							cursor: "pointer",
+						}}
+					>
+						<img src={icons.email} alt="icon" width={18} height={18} />{" "}
+						brangsaa@gmail.com
+					</StyledTypography>
+					<StyledTypography
+						fs={1}
+						styletype="default"
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							gap: "8px",
+							cursor: "pointer",
+						}}
 					>
 						<img src={icons.location} alt="icon" /> DBA Building Near Hameed
 						Ghard, Skardu

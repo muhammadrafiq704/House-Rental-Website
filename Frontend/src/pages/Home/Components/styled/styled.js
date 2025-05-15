@@ -1,5 +1,5 @@
 import { images } from "@/assets";
-import { Box, Grid, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 export const StyledHeroWrapper = styled(Box)({
 	//   border: '1px solid red',

@@ -5,11 +5,13 @@ const action = async ({ request }) => {
 		const requestedData = await request.json();
 		switch (request.method) {
 			case "POST": {
-				const response = await HouseRentalAPI.post("/login", requestedData);
+				const response = await HouseRentalAPI.post("auth/login", requestedData);
+				console.log("response", response);
 				return {
 					error: null,
 					message: response.data?.message,
-					token: response.token,
+					token: response.data?.token,
+					user: response.data?.user,
 				};
 			}
 			default:

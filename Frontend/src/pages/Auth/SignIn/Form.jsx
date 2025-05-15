@@ -1,5 +1,6 @@
 import UIButton from "@/components/Button/UIButton";
 import UIInputFields from "@/components/TextField/UIInputFields";
+import { useAuth } from "@/context/AuthContext";
 import { useLayoutEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -15,6 +16,7 @@ const Form = () => {
 	const navigating = useNavigation();
 	const navigate = useNavigate();
 	const actionData = useActionData();
+	const { login } = useAuth();
 
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
@@ -34,17 +36,17 @@ const Form = () => {
 		};
 		submit(data, options);
 	};
-
 	useLayoutEffect(() => {
 		if (actionData) {
 			if (actionData.error === null) {
 				toast.success(`Success: ${actionData.message}`);
 				navigate("/");
+				login(actionData.token, actionData.user);
 			} else {
 				toast.error(`Error: ${actionData.message}`);
 			}
 		}
-	}, [actionData, navigate]);
+	}, [actionData, navigate, login]);
 
 	return (
 		<form onSubmit={loginForm.handleSubmit(onSubmit)}>

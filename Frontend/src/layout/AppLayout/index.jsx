@@ -1,5 +1,6 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
+import { useAuth } from "@/context/AuthContext";
 import { StyledNavlink, StyledTypography } from "@/styled";
 import appPaths from "@/utils/appRoutePaths";
 import { Box } from "@mui/material";
@@ -17,7 +18,7 @@ import {
 const AppLayout = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-
+	const { logout, user, token } = useAuth();
 	return (
 		<StyledAppWrapper>
 			<StyleHeaderWrapper>
@@ -58,15 +59,30 @@ const AppLayout = () => {
 							imgWidth={18}
 							onClick={() => navigate(appPaths.PROPERTY_REGISTER)}
 						/>
-						<UIButton
-							fs={14}
-							label="Login"
-							variant="contained"
-							icon={icons.login}
-							iconPosition="end"
-							imgWidth={20}
-							onClick={() => navigate("/sing-in")}
-						/>
+						{user && token ? (
+							<UIButton
+								fs={14}
+								label="Logout"
+								variant="contained"
+								icon={icons.login}
+								iconPosition="end"
+								imgWidth={20}
+								onClick={() => {
+									logout();
+									navigate("/sign-in");
+								}}
+							/>
+						) : (
+							<UIButton
+								fs={14}
+								label="Login"
+								variant="contained"
+								icon={icons.login}
+								iconPosition="end"
+								imgWidth={20}
+								onClick={() => navigate(appPaths.SIGN_IN)}
+							/>
+						)}
 					</Box>
 				</Box>
 			</StyleHeaderWrapper>

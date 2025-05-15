@@ -18,11 +18,10 @@ export const BlogsCardWrapper = styled(Grid)(({ theme }) => ({
 	display: "flex",
 	cursor: "pointer",
 	transition: "all 0.3s ease",
-
 	"& img": {
 		borderRadius: theme.shape.customRadius.curve,
 		width: "100%",
-		objectFit: "contain",
+		objectFit: "cover",
 	},
 	"&:hover": {
 		transform: "translateY(-10px)",

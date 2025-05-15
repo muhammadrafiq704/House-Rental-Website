@@ -16,7 +16,9 @@ export default function ErrorPage() {
 					Sorry, an unexpected error has occurred. {error?.status}
 				</StyledTypography>
 				<StyledTypography styletype="default">
-					{error?.statusText || error.response?.data?.message}
+					{error?.statusText ||
+						error?.response?.data?.message ||
+						"Unexpected Error occur"}
 				</StyledTypography>
 				{error?.status === 404 ? (
 					<UIButton

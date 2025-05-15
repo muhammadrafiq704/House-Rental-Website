@@ -27,8 +27,12 @@ import house from "@/assets/home-icon.png";
 import email from "@/assets/icons/Contact/email.png";
 import location from "@/assets/icons/Contact/location.png";
 import phone_call from "@/assets/icons/Contact/phone-call.png";
+import price from "@/assets/icons/Contact/price.png";
 import telephone from "@/assets/icons/Contact/telephone.png";
 
+import bathroom from "@/assets/icons/Blogs/bathtub.png";
+import bed from "@/assets/icons/Blogs/bed.png";
+import kit from "@/assets/icons/Blogs/spoon-and-fork.png";
 //icons
 import right_up from "@/assets/icons/Home/right-up.png";
 import home from "@/assets/images/Category/home-icon.png";
@@ -62,6 +66,10 @@ export const icons = {
 	location,
 	phone_call,
 	telephone,
+	price,
+	bathroom,
+	kit,
+	bed,
 };
 export const images = {
 	hero,

@@ -6,9 +6,10 @@ export const BlogsDetailsWrapper = styled(Box)(({ theme }) => ({
 	gap: "40px",
 	padding: "20px",
 	width: "100%",
-	border: "1px solid red",
 	"& img": {
-		width: "100%",
+		width: "500px",
+		height: "300px",
+		objectFit: "cover",
 		borderRadius: theme.shape.customRadius.halfRounded,
 	},
 }));

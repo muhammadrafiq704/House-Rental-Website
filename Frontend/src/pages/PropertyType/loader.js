@@ -4,7 +4,6 @@ import { defer } from "react-router-dom";
 const loader = async ({ params }) => {
 	try {
 		const { type } = params;
-		console.log("type", type);
 		const propertyByTypes = HouseRentalAPI.get(`properties/${type}`);
 
 		return defer({

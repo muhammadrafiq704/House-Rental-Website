@@ -24,15 +24,9 @@ const BlogsCard = ({ items }) => {
 							objectFit: "cover",
 						}}
 					/>
-					{items?.purpose ? (
+					{items.purpose ? (
 						<Chip
-							label={
-								items.purpose === "sell"
-									? "Selling"
-									: items.purpose === "featured"
-										? "Featured"
-										: "Renting"
-							}
+							label={items.purpose === "sell" ? "Selling" : "Renting"}
 							color="#006A71"
 							sx={{
 								position: "absolute",
@@ -40,9 +34,7 @@ const BlogsCard = ({ items }) => {
 								right: 20,
 								fontWeight: 600,
 								backgroundImage:
-									items.purpose === "featured"
-										? "radial-gradient(at top left,rgb(252, 248, 226),rgb(187, 31, 3) 80%)"
-										: "radial-gradient(at top left,rgb(252, 248, 226),rgb(207, 170, 4) 80%)",
+									"radial-gradient(at top left, #9ACBD0, #006A71 80%)",
 								color: "#fff",
 								textAlign: "center",
 							}}
@@ -51,14 +43,18 @@ const BlogsCard = ({ items }) => {
 				</Box>
 				<StyledTypography
 					fs={1.1}
-					fw={600}
 					styletype="default"
 					maxlines={1}
 					sx={{ textTransform: "capitalize" }}
 				>
 					{items.property_type}
 				</StyledTypography>
-				<StyledTypography fs={0.9} styletype="default" maxlines={2}>
+				<StyledTypography
+					fs={0.9}
+					styletype="default"
+					maxlines={2}
+					sx={{ textTransform: "capitalize" }}
+				>
 					{items.desc}
 				</StyledTypography>
 				<StyledTypography fs={0.9} styletype="default" fw={600}>

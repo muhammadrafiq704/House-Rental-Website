@@ -23,7 +23,15 @@ const Footer = () => {
 				{FooterData.map((footer) => (
 					<StyledNavlink
 						key={footer.id}
-						to={footer.href}
+						to={
+							footer.title === "About Us" ||
+							footer.title === "Contact Us" ||
+							footer.title === "Our Services" ||
+							footer.title === "Terms & Conditions" ||
+							footer.title === "Privacy Policy"
+								? footer.href
+								: `/${footer.title.toLowerCase()}`
+						}
 						sx={{ fontSize: "14px" }}
 					>
 						{footer.title}

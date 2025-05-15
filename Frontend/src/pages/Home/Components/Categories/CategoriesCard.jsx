@@ -1,4 +1,4 @@
-import { StyledTypography } from "@/styled";
+import { StyledNavlink, StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { StyledCategoriesCard } from "./styled";
@@ -13,6 +13,7 @@ const CategoriesCard = () => {
 			sx={{
 				display: "flex",
 				flexWrap: "wrap",
+				justifyContent: "center",
 				paddingLeft: "20px",
 				paddingRight: "20px",
 			}}
@@ -21,7 +22,7 @@ const CategoriesCard = () => {
 				<StyledCategoriesCard
 					size={{ xs: 2, md: 2.4, sm: 6 }}
 					key={category.id}
-					onClick={() => navigate(`/categories/${category.title}`)}
+					onClick={() => navigate(`/${category.title.toLowerCase()}`)}
 				>
 					<img src={category.image} alt="icon" />
 					<StyledTypography

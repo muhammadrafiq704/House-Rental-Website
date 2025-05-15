@@ -10,7 +10,6 @@ export const UIPageLoadingWrapper = styled(Box)({
 	justifyContent: "center",
 	alignItems: "center",
 	transform: "scale(1)",
-	border: "1px solid red",
 	"& p": {
 		animation: "scaling 1.5s alternate infinite ease-in",
 		"@keyframes scaling": {

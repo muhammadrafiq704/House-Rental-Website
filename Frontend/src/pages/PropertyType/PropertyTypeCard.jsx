@@ -2,7 +2,7 @@ import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box, Grid } from "@mui/material";
+import { Box, Chip, Grid } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { StyledHousesCardWrapper } from "./styled";
@@ -13,7 +13,7 @@ const PropertyTypeCard = ({ property }) => {
 		<StyledHousesCardWrapper>
 			<Grid container sx={{ display: "flex", gap: "20px", p: 1 }}>
 				<Grid
-					sx={{ display: "flex", alignItems: "center" }}
+					sx={{ display: "flex", alignItems: "center", position: "relative" }}
 					size={{ md: 4, xl: 6, sm: 3 }}
 				>
 					{" "}
@@ -23,6 +23,30 @@ const PropertyTypeCard = ({ property }) => {
 						width={250}
 						height={200}
 					/>
+					{property?.purpose ? (
+						<Chip
+							label={
+								property.purpose === "sell"
+									? "Selling"
+									: property.purpose === "featured"
+										? "Featured"
+										: "Renting"
+							}
+							color="#006A71"
+							sx={{
+								position: "absolute",
+								top: 10,
+								right: 40,
+								fontWeight: 600,
+								backgroundImage:
+									property.purpose === "featured"
+										? "radial-gradient(at top left,rgb(252, 248, 226),rgb(187, 31, 3) 80%)"
+										: "radial-gradient(at top left,rgb(252, 248, 226),rgb(207, 170, 4) 80%)",
+								color: "#fff",
+								textAlign: "center",
+							}}
+						/>
+					) : null}
 				</Grid>
 				<Grid
 					size={{ md: 7, xl: 6, sm: 3 }}

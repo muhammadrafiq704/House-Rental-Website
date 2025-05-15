@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 
 // Routes
-app.use("/api", AuthRoutes);
+app.use("/api/auth", AuthRoutes);
 
 app.use("/uploads", express.static("uploads"));
 app.use("/api/properties", PropertyRoutes);

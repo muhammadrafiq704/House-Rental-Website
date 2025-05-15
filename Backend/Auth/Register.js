@@ -4,6 +4,7 @@ import Register from "../Models/AuthModels/RegisterModel.js";
 export const registerUser = async (req, res) => {
 	try {
 		const { username, email, password, confirm_password } = req.body;
+		console.log("req.body", req.body);
 
 		if (!username || !email || !password || !confirm_password) {
 			return res.status(400).json({ message: "All fields are required" });

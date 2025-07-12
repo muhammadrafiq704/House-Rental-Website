@@ -19,6 +19,7 @@ const RegisterSchema = new mongoose.Schema(
 			required: true,
 			minlength: 6,
 		},
+		file: { type: String, required: true },
 	},
 	{
 		timestamps: true,

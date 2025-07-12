@@ -8,6 +8,7 @@ if (!fs.existsSync(uploadDir)) {
 	fs.mkdirSync(uploadDir);
 }
 
+// Configure storage
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, uploadDir);
@@ -19,19 +20,33 @@ const storage = multer.diskStorage({
 	},
 });
 
+// Allow images and mp4 videos
 const fileFilter = (req, file, cb) => {
-	const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+	const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "video/mp4"];
+
 	if (allowedTypes.includes(file.mimetype)) {
 		cb(null, true);
 	} else {
-		cb(new Error("Only images are allowed"), false);
+		cb(
+			new Error("Only JPG, JPEG, PNG images and MP4 videos are allowed"),
+			false,
+		);
 	}
 };
 
+// Multer config
 const upload = multer({
 	storage,
 	fileFilter,
-	limits: { fileSize: 5 * 1024 * 1024 }, // Max 5MB per file
+	limits: {
+		fileSize: 20 * 1024 * 1024, // Max 20MB per file (you can change this)
+	},
 });
+
+// Export utility methods
+export const uploadSingle = (fieldName) => upload.single(fieldName);
+export const uploadMultiple = (fieldName, maxCount = 5) =>
+	upload.array(fieldName, maxCount);
+export const uploadFields = (fieldsArray) => upload.fields(fieldsArray);
 
 export default upload;

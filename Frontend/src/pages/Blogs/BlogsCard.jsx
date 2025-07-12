@@ -1,7 +1,7 @@
 import UIButton from "@/components/Button/UIButton";
 import { FlexBetween, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box, Chip } from "@mui/material";
+import { Box, Chip, Tooltip } from "@mui/material";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { BlogsCardWrapper } from "./styled";
 
@@ -11,6 +11,7 @@ const BlogsCard = ({ items }) => {
 
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
+
 	return (
 		<BlogsCardWrapper>
 			<FlexBetween gap={10} direction="column">
@@ -24,9 +25,15 @@ const BlogsCard = ({ items }) => {
 							objectFit: "cover",
 						}}
 					/>
-					{items.purpose ? (
+					{items?.purpose ? (
 						<Chip
-							label={items.purpose === "sell" ? "Selling" : "Renting"}
+							label={
+								items.purpose === "sell"
+									? "Selling"
+									: items.purpose === "featured"
+										? "Featured"
+										: "Renting"
+							}
 							color="#006A71"
 							sx={{
 								position: "absolute",
@@ -34,7 +41,9 @@ const BlogsCard = ({ items }) => {
 								right: 20,
 								fontWeight: 600,
 								backgroundImage:
-									"radial-gradient(at top left, #9ACBD0, #006A71 80%)",
+									items.purpose === "featured"
+										? "radial-gradient(at top left,rgb(252, 248, 226),rgb(187, 31, 3) 80%)"
+										: "radial-gradient(at top left,rgb(252, 248, 226),rgb(207, 170, 4) 80%)",
 								color: "#fff",
 								textAlign: "center",
 							}}
@@ -49,14 +58,16 @@ const BlogsCard = ({ items }) => {
 				>
 					{items.property_type}
 				</StyledTypography>
-				<StyledTypography
-					fs={0.9}
-					styletype="default"
-					maxlines={2}
-					sx={{ textTransform: "capitalize" }}
-				>
-					{items.desc}
-				</StyledTypography>
+				<Tooltip title={items.desc} arrow>
+					<StyledTypography
+						fs={0.9}
+						styletype="default"
+						maxlines={2}
+						sx={{ textTransform: "capitalize" }}
+					>
+						{items.desc}
+					</StyledTypography>
+				</Tooltip>
 				<StyledTypography fs={0.9} styletype="default" fw={600}>
 					PKR <strong>{items.price}</strong>
 				</StyledTypography>

@@ -12,6 +12,15 @@ const appPaths = {
 	CONTACT_US: "/contact-us",
 	PROPERTY_TYPE: "/:type",
 	PROPERTY_DETAILS: "/:type/:id",
+	PRIVACY_POLICY: "/privacy-policy",
+	TERMS_AND_CONDITIONS: "/terms-and-conditions",
+
+	//profile routes
+	PROFILE_DASHBOARD: "/profile-dashboard",
+	UPDATE_PROFILE: "/update-profile",
+	NOTIFICATION_SETTINGS: "notification-settings",
+	UPDATE_EMAIL: "update-email",
+	CHANGE_PASSWORD: "/change-password",
 
 	//blogs
 	BLOGS: "/blogs",

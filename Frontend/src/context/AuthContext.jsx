@@ -1,5 +1,7 @@
 import { HouseRentalAPI } from "@/api/HouseRental";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useCallback } from "react";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
@@ -10,10 +12,11 @@ export const AuthProvider = ({ children }) => {
 	const [token, setToken] = useState(localStorage.getItem("token") || null);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const login = (token, user) => {
+	// console.log("user", user);
+	// console.log("token", token);
+
+	const login = (token) => {
 		setToken(token);
-		setUser(user);
-		setIsLoading(true);
 		localStorage.setItem("token", token);
 	};
 
@@ -22,6 +25,27 @@ export const AuthProvider = ({ children }) => {
 		setToken(null);
 		localStorage.removeItem("token");
 	};
+
+	const fetchUser = useCallback(async () => {
+		if (!token) return;
+
+		try {
+			setIsLoading(true);
+			const response = await HouseRentalAPI.get("auth/user/me", {
+				headers: { Authorization: `Bearer ${token}` },
+			});
+			setUser(response.data?.data);
+		} catch (error) {
+			toast.error("Failed to fetch user", error.response?.data?.message);
+			// logout();
+		} finally {
+			setIsLoading(false);
+		}
+	}, [token]);
+
+	useEffect(() => {
+		fetchUser();
+	}, [fetchUser]);
 
 	return (
 		<AuthContext.Provider value={{ user, token, login, logout, isLoading }}>

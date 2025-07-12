@@ -9,7 +9,7 @@ const PrivateRoutes = () => {
 	if (isLoading) return <UIPageLoading />;
 	if (!user) {
 		logout();
-		return <Navigate to="sign-in" replace />;
+		return <Navigate to="/sign-in" replace />;
 	}
 	return <Outlet />;
 };

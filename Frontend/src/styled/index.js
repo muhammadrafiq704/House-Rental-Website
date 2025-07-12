@@ -24,13 +24,15 @@ export const StyledTypography = styled(Typography)(
 	}),
 );
 
-export const FlexBetween = styled(Box)(({ gap, direction }) => ({
-	display: "flex",
-	justifyContent: "center",
-	alignItems: direction ? "flex-start" : "center",
-	flexDirection: direction || "",
-	gap: gap || "8px",
-}));
+export const FlexBetween = styled(Box)(
+	({ gap, direction, justifyContent }) => ({
+		display: "flex",
+		justifyContent: justifyContent || "center",
+		alignItems: direction ? "flex-start" : "center",
+		flexDirection: direction || "",
+		gap: gap || "8px",
+	}),
+);
 
 export const StyledNavlink = styled(NavLink)({
 	position: "relative",

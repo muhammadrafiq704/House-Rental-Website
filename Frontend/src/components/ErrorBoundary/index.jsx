@@ -6,19 +6,29 @@ import { StyledErrorBoundaryWrapper } from "./styled";
 export default function ErrorPage() {
 	const error = useRouteError();
 	const navigate = useNavigate();
+	console.log("error", error);
 	return (
 		<StyledErrorBoundaryWrapper>
 			<div id="error-page">
 				<StyledTypography fs={2.8} styletype="default">
-					Oops!
+					Oops! {error?.status}
 				</StyledTypography>
 				<StyledTypography fs={1.2} styletype="default">
-					Sorry, an unexpected error has occurred. {error?.status}
+					Sorry, an unexpected error has occurred.
 				</StyledTypography>
 				<StyledTypography styletype="default">
+					Message:{" "}
 					{error?.statusText ||
 						error?.response?.data?.message ||
+						error?.message ||
 						"Unexpected Error occur"}
+				</StyledTypography>
+				<StyledTypography styletype="default">
+					Error:{" "}
+					{error?.statusText ||
+						error?.response?.data?.error ||
+						error?.name ||
+						"Error detected"}
 				</StyledTypography>
 				{error?.status === 404 ? (
 					<UIButton

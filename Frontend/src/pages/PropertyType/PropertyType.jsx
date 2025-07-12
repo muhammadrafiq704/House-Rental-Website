@@ -1,3 +1,4 @@
+import UISkeletonPage from "@/components/UISkeletonPage";
 import { StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
 import { Suspense } from "react";
@@ -29,10 +30,10 @@ const PropertyType = () => {
 						cursor: "pointer",
 					}}
 				>
-					<Suspense fallback={<div>Loading...</div>}>
+					<Suspense fallback={<UISkeletonPage />}>
 						<Await resolve={loaderData.properties}>
 							{(properties) =>
-								properties.data.data.length === 0
+								properties?.data?.data?.length === 0
 									? "No Houses Found"
 									: properties?.data?.data?.map((property) => (
 											<PropertyTypeCard

@@ -23,7 +23,7 @@ const SignIn = () => {
 				<StyledTypography sx={{ pt: 2, color: "#006A71" }} fs={2.2}>
 					Login
 				</StyledTypography>
-				<Form />
+				<Form /> {/* form*/}
 				<Box
 					sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
 				>
@@ -54,6 +54,7 @@ const SignIn = () => {
 						icon={social_icons.facebook}
 						imgW={32}
 						imgH={32}
+						href="https://www.facebook.com/brangsaa/"
 					/>
 					<UIIconButton
 						variant="outlined"
@@ -66,12 +67,14 @@ const SignIn = () => {
 						icon={social_icons.instagram}
 						imgW={24}
 						imgH={24}
+						href="https://www.instagram.com/brangsaaa/"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.pinterest}
 						imgW={24}
 						imgH={24}
+						href="https://www.pinterest.com/brangsaa/"
 					/>
 				</FlexBetween>
 				<UIButton

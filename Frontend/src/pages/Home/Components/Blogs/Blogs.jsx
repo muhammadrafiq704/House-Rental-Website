@@ -1,6 +1,7 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import ErrorPage from "@/components/ErrorBoundary";
+import UISkeletonPage from "@/components/UISkeletonPage";
 import { StyledTypography } from "@/styled";
 import { Box } from "@mui/material";
 import { Suspense } from "react";
@@ -31,7 +32,7 @@ const Blogs = () => {
 				</StyledTypography>
 			</Box>
 
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<UISkeletonPage />}>
 				<Await
 					resolve={loaderData.properties}
 					errorElement={<ErrorPage error={loaderData.properties._error} />}

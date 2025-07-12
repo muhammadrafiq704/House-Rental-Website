@@ -13,5 +13,5 @@ export const FooterData = [
 	{ id: 5, title: "Contact Us", href: appPaths.CONTACT_US },
 	{ id: 7, title: "Our Services", href: appPaths.OUR_SERVICES },
 	{ id: 8, title: "Privacy Policy", href: appPaths.PRIVACY_POLICY },
-	{ id: 9, title: "Terms & Conditions", href: appPaths.TERMS_AND_CONDITION },
+	{ id: 9, title: "Terms & Conditions", href: appPaths.TERMS_AND_CONDITIONS },
 ];

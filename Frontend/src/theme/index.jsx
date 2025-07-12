@@ -36,9 +36,12 @@ export const appTheme = createTheme({
 		"0px 2px 5px rgba(0, 106, 113, 0.3)",
 	],
 	breakpoints: {
-		mobile: 450,
-		tablet: 786,
-		laptop: 1024,
-		desktop: 1440,
+		values: {
+			xs: 0,
+			sm: 430,
+			md: 786,
+			lg: 1024,
+			xl: 1440,
+		},
 	},
 });

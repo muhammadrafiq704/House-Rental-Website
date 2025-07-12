@@ -2,18 +2,18 @@ import { HouseRentalAPI } from "@/api/HouseRental";
 
 const action = async ({ request }) => {
 	try {
-		const requestedData = await request.json();
-		console.log("requestedData", requestedData);
 		switch (request.method) {
 			case "POST": {
+				const registeredData = await request.formData();
+
 				const response = await HouseRentalAPI.post(
-					"auth/register",
-					requestedData,
+					"properties/",
+					registeredData,
 				);
-				console.log("response", response);
 				return {
 					error: null,
 					message: response.data?.message,
+					token: response.token,
 				};
 			}
 			default:

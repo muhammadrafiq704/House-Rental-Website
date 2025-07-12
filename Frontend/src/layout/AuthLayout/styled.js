@@ -1,11 +1,12 @@
 import { Box, styled } from "@mui/material";
 
 const StyledAuthWrapper = styled(Box)(({ theme }) => ({
-	minWidth: "100dvh",
-	minHeight: "100dvh",
+	width: "100",
+	height: "100dvh",
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
+	// border: "3px solid green",
 	fontFamily: theme.typography.fontFamily,
 }));
 

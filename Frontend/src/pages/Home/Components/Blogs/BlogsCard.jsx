@@ -1,7 +1,7 @@
 import UIButton from "@/components/Button/UIButton";
 import { FlexBetween, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box, Chip } from "@mui/material";
+import { Box, Chip, Tooltip } from "@mui/material";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { BlogsCardWrapper } from "./styled";
 
@@ -12,7 +12,7 @@ const BlogsCard = ({ items }) => {
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
 	return (
-		<BlogsCardWrapper>
+		<BlogsCardWrapper key={items._id}>
 			<FlexBetween gap={10} direction="column">
 				<Box sx={{ position: "relative" }}>
 					<img
@@ -58,9 +58,11 @@ const BlogsCard = ({ items }) => {
 				>
 					{items.property_type}
 				</StyledTypography>
-				<StyledTypography fs={0.9} styletype="default" maxlines={2}>
-					{items.desc}
-				</StyledTypography>
+				<Tooltip title={items.desc} arrow>
+					<StyledTypography fs={0.9} styletype="default" maxlines={2}>
+						{items.desc}
+					</StyledTypography>
+				</Tooltip>
 				<StyledTypography fs={0.9} styletype="default" fw={600}>
 					PKR <strong>{items.price}</strong>
 				</StyledTypography>

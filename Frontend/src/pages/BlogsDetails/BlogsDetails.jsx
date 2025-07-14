@@ -1,9 +1,10 @@
 import { icons, social_icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
+import UISkeletonPage from "@/components/UISkeletonPage";
 // import { Suspense } from "react";
 import { StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box } from "@mui/material";
+import { Box, Tooltip } from "@mui/material";
 import { Suspense } from "react";
 import { Await, useNavigation } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
@@ -19,7 +20,7 @@ const BlogsDetails = () => {
 		navigating.state === "loading" || navigating.state === "submitting";
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<UISkeletonPage />}>
 			<Await resolve={loaderData.blogs_details}>
 				{(blogs_details) =>
 					!blogs_details ? (
@@ -46,17 +47,21 @@ const BlogsDetails = () => {
 								>
 									{blogs_details.data?.data?.property_type}
 								</StyledTypography>
-								<StyledTypography fs={1.1} styletype="default" maxlines={4}>
-									{blogs_details.data?.data?.desc}
-								</StyledTypography>
-								<StyledTypography
-									fs={1}
-									styletype="default"
-									pt={1}
-									maxlines={3}
-								>
-									{blogs_details.data?.data?.message}
-								</StyledTypography>
+								<Tooltip title={blogs_details.data?.data.desc} arrow>
+									<StyledTypography fs={1.1} styletype="default" maxlines={4}>
+										{blogs_details.data?.data?.desc}
+									</StyledTypography>
+								</Tooltip>
+								<Tooltip title={blogs_details.data?.data.message} arrow>
+									<StyledTypography
+										fs={1}
+										styletype="default"
+										pt={1}
+										maxlines={3}
+									>
+										{blogs_details.data?.data?.message}
+									</StyledTypography>
+								</Tooltip>
 								<Box
 									sx={{
 										display: "flex",
@@ -153,7 +158,7 @@ const BlogsDetails = () => {
 									variant="contained"
 									icon={social_icons.whatsapp}
 									iconPosition="end"
-									sx={{ fontSize: "16px" }}
+									sx={{ fontSize: "16px", mt: 2 }}
 									imgWidth={22}
 									imgHeight={22}
 									isLoading={isLoading}

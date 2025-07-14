@@ -4,8 +4,11 @@ import Register from "../Models/AuthModels/RegisterModel.js";
 export const registerUser = async (req, res) => {
 	try {
 		const { username, email, password, confirm_password } = req.body;
-		console.log("req.body", req.body);
+		const file = req.file;
 
+		if (!file) {
+			return res.status(400).json({ message: "File are required" });
+		}
 		if (!username || !email || !password || !confirm_password) {
 			return res.status(400).json({ message: "All fields are required" });
 		}
@@ -26,11 +29,12 @@ export const registerUser = async (req, res) => {
 			username,
 			email,
 			password: hashedPassword,
+			file: file.filename,
 		});
 
 		await newUser.save();
 
-		res.status(201).json({
+		res.status(200).json({
 			message: "User registered successfully",
 		});
 	} catch (error) {

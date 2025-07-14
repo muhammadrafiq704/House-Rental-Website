@@ -36,12 +36,13 @@ const Form = () => {
 		};
 		submit(data, options);
 	};
+
 	useLayoutEffect(() => {
 		if (actionData) {
 			if (actionData.error === null) {
 				toast.success(`Success: ${actionData.message}`);
 				navigate("/");
-				login(actionData.token, actionData.user);
+				login(actionData.token);
 			} else {
 				toast.error(`Error: ${actionData.message}`);
 			}

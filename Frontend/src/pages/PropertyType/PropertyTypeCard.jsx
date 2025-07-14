@@ -2,7 +2,7 @@ import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box, Chip, Grid } from "@mui/material";
+import { Box, Chip, Grid, Tooltip } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { StyledHousesCardWrapper } from "./styled";
@@ -10,8 +10,12 @@ import { StyledHousesCardWrapper } from "./styled";
 const PropertyTypeCard = ({ property }) => {
 	const navigate = useNavigate();
 	return (
-		<StyledHousesCardWrapper>
-			<Grid container sx={{ display: "flex", gap: "20px", p: 1 }}>
+		<StyledHousesCardWrapper key={property._id}>
+			<Grid
+				container
+				sx={{ display: "flex", gap: "20px", p: 1 }}
+				key={property._id}
+			>
 				<Grid
 					sx={{ display: "flex", alignItems: "center", position: "relative" }}
 					size={{ md: 4, xl: 6, sm: 3 }}
@@ -65,15 +69,17 @@ const PropertyTypeCard = ({ property }) => {
 					>
 						{property.property_type}
 					</StyledTypography>
-					<StyledTypography
-						fs={0.9}
-						styletype="default"
-						light
-						maxlines={2}
-						sx={{ textTransform: "capitalize" }}
-					>
-						{property.desc}
-					</StyledTypography>
+					<Tooltip title={property.desc} arrow>
+						<StyledTypography
+							fs={0.9}
+							styletype="default"
+							light
+							maxlines={2}
+							sx={{ textTransform: "capitalize" }}
+						>
+							{property.desc}
+						</StyledTypography>
+					</Tooltip>
 					<Box
 						sx={{
 							display: "flex",

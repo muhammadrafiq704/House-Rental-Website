@@ -45,18 +45,21 @@ const SignUp = () => {
 						icon={social_icons.linkedIn}
 						imgW={28}
 						imgH={28}
+						href="https://www.facebook.com/brangsaa/"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.instagram}
 						imgW={24}
 						imgH={24}
+						href="https://www.instagram.com/brangsaaa/"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.pinterest}
 						imgW={24}
 						imgH={24}
+						href="https://www.pinterest.com/brangsaa/"
 					/>
 				</FlexBetween>
 				<UIButton

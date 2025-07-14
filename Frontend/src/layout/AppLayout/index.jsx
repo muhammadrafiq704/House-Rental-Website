@@ -2,12 +2,15 @@ import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { useAuth } from "@/context/AuthContext";
 import { StyledNavlink, StyledTypography } from "@/styled";
+import { ImageGettingURL } from "@/utils/ImageGettingURL";
 import appPaths from "@/utils/appRoutePaths";
-import { Box } from "@mui/material";
+import { Avatar, Box, IconButton, Tooltip } from "@mui/material";
+import { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { HeaderData } from "../utils/HeaderData";
 import Footer from "./Footer";
+import ProfileMenu from "./ProfileMenu";
 import { NameFormatter } from "./logic";
 import {
 	StyleHeaderWrapper,
@@ -18,11 +21,44 @@ import {
 const AppLayout = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const { logout, user, token } = useAuth();
+	const [anchorEl, setAnchorEl] = useState(null);
+
+	const { user, token } = useAuth();
+
+	const open = Boolean(anchorEl);
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+	// console.log("user", user);
 	return (
 		<StyledAppWrapper>
 			<StyleHeaderWrapper>
-				<Box sx={{ textAlign: "left" }}>logo</Box>
+				<Box
+					sx={{
+						textAlign: "left",
+						// border: "1px solid red",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						mt: 2,
+					}}
+				>
+					<Link to="/" style={{ display: "inline-block" }}>
+						<img
+							src={icons.brangsaa}
+							alt="logo"
+							style={{
+								width: "150px",
+								height: "50px",
+								objectFit: "cover",
+								cursor: "pointer",
+							}}
+						/>
+					</Link>
+				</Box>
 				<Box sx={{ display: "flex", alignItems: "center", gap: "80px" }}>
 					<Box sx={{ display: "flex", alignItems: "center", gap: "22px" }}>
 						{HeaderData.map((head) => (
@@ -59,20 +95,7 @@ const AppLayout = () => {
 							imgWidth={18}
 							onClick={() => navigate(appPaths.PROPERTY_REGISTER)}
 						/>
-						{user && token ? (
-							<UIButton
-								fs={14}
-								label="Logout"
-								variant="contained"
-								icon={icons.login}
-								iconPosition="end"
-								imgWidth={20}
-								onClick={() => {
-									logout();
-									navigate("/sign-in");
-								}}
-							/>
-						) : (
+						{!token && (
 							<UIButton
 								fs={14}
 								label="Login"
@@ -82,6 +105,51 @@ const AppLayout = () => {
 								imgWidth={20}
 								onClick={() => navigate(appPaths.SIGN_IN)}
 							/>
+						)}
+						{user && token && (
+							<>
+								<Tooltip
+									title={user?.username}
+									componentsProps={{
+										tooltip: {
+											sx: {
+												backgroundColor: "#006A71",
+												color: "#fff",
+												fontSize: "0.8rem",
+												textTransform: "capitalize",
+											},
+										},
+									}}
+								>
+									<IconButton
+										onClick={handleClick}
+										size="small"
+										sx={{ ml: 2 }}
+										aria-controls={open ? "account-menu" : undefined}
+										aria-haspopup="true"
+										aria-expanded={open ? "true" : undefined}
+									>
+										<Avatar sx={{ width: 32, height: 32 }}>
+											{" "}
+											<img
+												src={ImageGettingURL(user.file)}
+												alt="profile img"
+												style={{
+													width: "32px",
+													height: "32px",
+													objectFit: "cover",
+												}}
+											/>{" "}
+										</Avatar>
+									</IconButton>
+								</Tooltip>
+								<ProfileMenu
+									handleClose={handleClose}
+									anchorEl={anchorEl}
+									open={open}
+									user={user}
+								/>
+							</>
 						)}
 					</Box>
 				</Box>

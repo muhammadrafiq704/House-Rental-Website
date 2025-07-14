@@ -14,10 +14,19 @@ const Footer = () => {
 	return (
 		<FooterContent>
 			<FooterLogo>
-				<StyledTypography fs={1.3} fw={600} styletype="default">
-					House Rental Website{" "}
+				<img
+					src={icons.brangsaa}
+					alt="logo"
+					style={{
+						width: "200px",
+						height: "70px",
+						objectFit: "cover",
+						cursor: "pointer",
+					}}
+				/>
+				<StyledTypography fs={0.8} fw={400} styletype="default">
+					Where peace meets opportunity!
 				</StyledTypography>
-				<img src={social_icons.facebook} alt="logo" />
 			</FooterLogo>
 			<FooterLinks>
 				{FooterData.map((footer) => (
@@ -48,24 +57,32 @@ const Footer = () => {
 						icon={social_icons.facebook}
 						imgW={32}
 						imgH={32}
+						href="https://www.facebook.com/brangsaa/"
+						target="blank"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.linkedIn}
 						imgW={28}
 						imgH={28}
+						// onClick={()=>"https://www.facebook.com/brangsaa/"}
+						// target="_blank"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.instagram}
 						imgW={24}
 						imgH={24}
+						href="https://www.instagram.com/brangsaaa/"
+						target="blank"
 					/>
 					<UIIconButton
 						variant="outlined"
 						icon={social_icons.pinterest}
 						imgW={24}
 						imgH={24}
+						href="https://www.pinterest.com/brangsaa/"
+						target="blank"
 					/>
 				</FlexBetween>
 			</FooterContact>
@@ -120,8 +137,8 @@ const Footer = () => {
 							cursor: "pointer",
 						}}
 					>
-						<img src={icons.location} alt="icon" /> DBA Building Near Hameed
-						Ghard, Skardu
+						<img src={icons.location} alt="icon" />
+						Skardu, Gilgit Baltistan
 					</StyledTypography>
 				</FlexBetween>
 			</FooterContactInfo>

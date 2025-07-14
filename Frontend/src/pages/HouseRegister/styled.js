@@ -5,6 +5,7 @@ export const HouseRegisterWrapper = styled(Grid)(({ theme }) => ({
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
+	flexDirection: "column",
 	margin: "10px 20px 20px 20px",
 	backgroundColor: "white",
 	borderRadius: theme.shape.customRadius.halfRounded,

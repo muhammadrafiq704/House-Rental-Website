@@ -19,6 +19,7 @@ import hero from "@/assets/images/Home/hero.jpg";
 import owner1 from "@/assets/images/Owners/owner1.jpg";
 import owner2 from "@/assets/images/Owners/owner2.jpg";
 import verified from "@/assets/images/Owners/verified.png";
+import privacy from "@/assets/images/Privacy/image.png";
 import boy from "@/assets/images/Testimonials/boy.png";
 import star from "@/assets/images/Testimonials/star.png";
 import woman from "@/assets/images/Testimonials/woman.png";
@@ -29,7 +30,9 @@ import location from "@/assets/icons/Contact/location.png";
 import phone_call from "@/assets/icons/Contact/phone-call.png";
 import price from "@/assets/icons/Contact/price.png";
 import telephone from "@/assets/icons/Contact/telephone.png";
+import hand from "@/assets/icons/point.png";
 
+import brangsaa from "@/assets/brangsaa.png";
 import bathroom from "@/assets/icons/Blogs/bathtub.png";
 import bed from "@/assets/icons/Blogs/bed.png";
 import kit from "@/assets/icons/Blogs/spoon-and-fork.png";
@@ -70,6 +73,8 @@ export const icons = {
 	bathroom,
 	kit,
 	bed,
+	brangsaa,
+	hand,
 };
 export const images = {
 	hero,
@@ -83,4 +88,5 @@ export const images = {
 	bedroom,
 	kitchen,
 	large_home,
+	privacy,
 };

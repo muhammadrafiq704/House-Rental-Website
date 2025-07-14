@@ -28,7 +28,7 @@ const Hero = () => {
 				>
 					<Grid item>
 						<StyledTypography fs={3.3} sx={{ textAlign: "center" }}>
-							Find Your Dream Houses <br /> With Us!
+							Find Your Dream Property <br /> With Us!
 						</StyledTypography>
 						<pre
 							style={{ fontSize: "16px", color: "white", textAlign: "center" }}
@@ -43,6 +43,7 @@ const Hero = () => {
 							variant="contained"
 							iconPosition="end"
 							icon={icons.right_up}
+							href="/about-us"
 						/>
 					</Grid>
 				</Grid>

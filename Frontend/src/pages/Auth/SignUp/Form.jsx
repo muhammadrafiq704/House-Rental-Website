@@ -25,16 +25,29 @@ const Form = () => {
 			email: "",
 			password: "",
 			confirm_password: "",
+			file: "",
 		},
 	});
 
 	const onSubmit = (data) => {
 		const options = {
-			encType: "application/json",
+			encType: "multipart/form-data",
 			action: "/sign-up",
 			method: "POST",
 		};
-		submit(data, options);
+		const dataHas = { ...data };
+		const formData = new FormData();
+
+		for (const [key, value] of Object.entries(dataHas)) {
+			if (value instanceof FileList) {
+				for (const file of value) {
+					formData.append(key, file);
+				}
+			} else {
+				formData.append(key, value);
+			}
+		}
+		submit(formData, options);
 	};
 
 	useLayoutEffect(() => {
@@ -53,6 +66,26 @@ const Form = () => {
 			onSubmit={loginForm.handleSubmit(onSubmit)}
 			style={{ padding: "0 20px 10px 20px" }}
 		>
+			<UIInputFields
+				name="file"
+				placeholder="Choose profile image"
+				control={loginForm.control}
+				rules={{
+					required: "Profile image is required",
+					validate: (fileList) => {
+						const file = fileList?.[0];
+						if (!file) return "Profile image is required";
+						if (file.size > 2 * 1024 * 1024) {
+							return "File must be less than or equal to 2MB.";
+						}
+						return true;
+					},
+				}}
+				sx={{ mt: "1em" }}
+				fullWidth
+				type="file"
+				accept="image/png, image/jpeg, image/jpg"
+			/>
 			<UIInputFields
 				name="username"
 				placeholder="Enter your username"

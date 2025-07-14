@@ -1,11 +1,13 @@
 import UIButton from "@/components/Button/UIButton";
 import UISelect from "@/components/SelectField/UISelect";
 import UIInputFields from "@/components/TextField/UIInputFields";
-import { Box } from "@mui/material";
+import { StyledNavlink } from "@/styled";
+import { Alert, Box } from "@mui/material";
 import { useLayoutEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
 	useActionData,
+	//   useNavigate,
 	//   useNavigate,
 	useNavigation,
 	useSubmit,
@@ -13,12 +15,14 @@ import {
 import { toast } from "react-toastify";
 import { HouseRegisterWrapper } from "./styled";
 import { dummyAreaUnitData, dummyData, dummyPurposeData } from "./utils";
+// import { useAuth } from "@/context/AuthContext";
 
 const HouseRegister = () => {
 	const submit = useSubmit();
 	const navigating = useNavigation();
 	//   const navigate = useNavigate();
 	const actionData = useActionData();
+	//   const { user, token } = useAuth();
 
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
@@ -50,7 +54,7 @@ const HouseRegister = () => {
 			encType: "multipart/form-data",
 			method: "POST",
 		};
-
+		// console.log('data', data)
 		const dataHas = { ...data };
 		const formData = new FormData();
 
@@ -63,7 +67,6 @@ const HouseRegister = () => {
 				formData.append(key, value);
 			}
 		}
-
 		submit(formData, options);
 	};
 
@@ -74,14 +77,22 @@ const HouseRegister = () => {
 				reset();
 				// navigate("/sign-in");
 			} else {
-				toast.error(`Error: ${actionData.message}`);
+				toast.warning(`Error: ${actionData.message}`);
 			}
 		}
 	}, [actionData, reset]);
 
 	return (
 		<HouseRegisterWrapper>
-			<form onSubmit={houseRegisterForm.handleSubmit(onSubmit)}>
+			<Alert severity="info" sx={{ width: "100%", fontSize: "16px" }}>
+				Info: First of all you need to login before register your property.
+				<tr />
+				Click here <StyledNavlink to="/sign-in">Login</StyledNavlink>
+			</Alert>
+			<form
+				onSubmit={houseRegisterForm.handleSubmit(onSubmit)}
+				style={{ width: "100%" }}
+			>
 				<UISelect
 					name="purpose"
 					placeholder="Select your purpose"
@@ -293,6 +304,9 @@ const HouseRegister = () => {
 						isLoading={isLoading}
 						type="submit"
 						fullWidth
+						// onClick={() => {
+						//   token && user ? isLoading : navigate("/sign-in");
+						// }}
 					/>
 				</Box>
 			</form>

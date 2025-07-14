@@ -48,15 +48,10 @@ const FooterContent = styled("div")({
 const FooterLogo = styled("div")({
 	display: "flex",
 	flexDirection: "column",
-	//   border: "1px solid red",
 	width: "100%",
 	alignItems: "flex-start",
-	//   justifyContent: "center",
+	justifyContent: "center",
 	padding: "4px",
-	gap: "10px",
-	"& img": {
-		width: "42px",
-	},
 });
 
 const FooterLinks = styled("div")({

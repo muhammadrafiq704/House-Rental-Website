@@ -13,6 +13,7 @@ const Form = () => {
 
 	const contactForm = useForm({
 		defaultValues: {
+			fullname: "",
 			email: "",
 			message: "",
 		},
@@ -90,18 +91,30 @@ const Form = () => {
 					variant="outlined"
 					imgH={24}
 					imgW={24}
-				/>
-				<UIIconButton
-					icon={social_icons.twitter}
-					variant="outlined"
-					imgH={24}
-					imgW={24}
+					href="https://www.facebook.com/brangsaa/"
+					target="blank"
 				/>
 				<UIIconButton
 					icon={social_icons.linkedIn}
 					variant="outlined"
 					imgH={24}
 					imgW={24}
+				/>
+				<UIIconButton
+					icon={social_icons.instagram}
+					variant="outlined"
+					imgH={24}
+					imgW={24}
+					href="https://www.instagram.com/brangsaaa/"
+					target="blank"
+				/>
+				<UIIconButton
+					icon={social_icons.pinterest}
+					variant="outlined"
+					imgH={24}
+					imgW={24}
+					href="https://www.pinterest.com/brangsaa/"
+					target="blank"
 				/>
 			</Box>
 		</FormWrapper>

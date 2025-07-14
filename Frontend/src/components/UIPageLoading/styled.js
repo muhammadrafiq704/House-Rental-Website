@@ -4,7 +4,7 @@ export const UIPageLoadingWrapper = styled(Box)({
 	position: "fixed",
 	width: "100%",
 	height: "100%",
-	backgroundColor: "#fff",
+	backgroundColor: "transparent",
 	zIndex: 999999,
 	display: "flex",
 	justifyContent: "center",

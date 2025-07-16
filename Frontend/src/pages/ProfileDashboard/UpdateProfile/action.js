@@ -4,10 +4,9 @@ const action = async ({ request }) => {
 	try {
 		switch (request.method) {
 			case "POST": {
-				const registeredData = await request.formData();
-
+				const registeredData = await request.json();
 				const response = await HouseRentalAPI.post(
-					"properties/",
+					"auth/update-password",
 					registeredData,
 				);
 				return {

@@ -71,7 +71,7 @@ const appRoutes = (
 				<Route
 					index
 					path={appPaths.CHANGE_PASSWORD}
-					lazy={() => import("@/pages/ProfileDashboard")}
+					lazy={() => import("@/pages/ProfileDashboard/UpdateProfile")}
 				/>
 			</Route>
 		</Route>

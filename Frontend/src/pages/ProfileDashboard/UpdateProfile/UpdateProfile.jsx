@@ -1,7 +1,7 @@
+import UIButton from "@/components/Button/UIButton";
 import UIInputFields from "@/components/TextField/UIInputFields";
 import { useAuth } from "@/context/AuthContext";
-import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box } from "@mui/material";
+import { FlexBetween } from "@/styled";
 import { useLayoutEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useActionData, useSubmit } from "react-router-dom";
@@ -11,13 +11,19 @@ import { StyledUpdateProfileWrapper } from "./styled";
 const UpdateProfile = () => {
 	const actionData = useActionData();
 	const submit = useSubmit();
+
 	const { user } = useAuth();
+
+	console.log("user", user);
+	const { _id } = user;
+	console.log("_id", _id);
 
 	const updateProfileForm = useForm({
 		values: {
-			file: user?.file ?? "",
-			username: user?.username ?? "",
-			email: user?.email ?? "",
+			password: "",
+			new_password: "",
+			confirm_password: "",
+			id: _id ?? "",
 		},
 	});
 
@@ -25,24 +31,13 @@ const UpdateProfile = () => {
 
 	const onSubmit = (data) => {
 		const options = {
-			encType: "multipart/form-data",
+			encType: "application/json",
 			method: "POST",
 		};
 
 		const dataHas = { ...data };
-		const formData = new FormData();
 
-		for (const [key, value] of Object.entries(dataHas)) {
-			if (value instanceof FileList) {
-				for (const file of value) {
-					formData.append(key, file);
-				}
-			} else {
-				formData.append(key, value);
-			}
-		}
-
-		submit(formData, options);
+		submit(dataHas, options);
 	};
 
 	useLayoutEffect(() => {
@@ -59,15 +54,38 @@ const UpdateProfile = () => {
 
 	return (
 		<StyledUpdateProfileWrapper>
-			<from onSubmit={updateProfileForm.handleSubmit(onSubmit)}>
-				<Box sx={{ width: "l00px", height: "100px" }}>
-					<img
-						src={ImageGettingURL(updateProfileForm.file)}
-						alt="profile-img"
+			<form onSubmit={updateProfileForm.handleSubmit(onSubmit)}>
+				<FlexBetween direction="column" gap={16}>
+					<UIInputFields
+						name="password"
+						placeholder="Enter old password"
+						control={updateProfileForm.control}
+						variant="outlined"
+						sx={{ mt: "1em" }}
+						fullWidth
+						type="password"
 					/>
-				</Box>
-				<UIInputFields placeholder="" />
-			</from>
+					<UIInputFields
+						name="new_password"
+						placeholder="Enter new password"
+						control={updateProfileForm.control}
+						variant="outlined"
+						sx={{ mt: "1em" }}
+						fullWidth
+						type="password"
+					/>
+					<UIInputFields
+						name="confirm_password"
+						placeholder="Enter confirm password"
+						control={updateProfileForm.control}
+						variant="outlined"
+						sx={{ mt: "1em" }}
+						fullWidth
+						type="password"
+					/>
+					<UIButton label="Update Now" variant="contained" type="submit" />
+				</FlexBetween>
+			</form>
 		</StyledUpdateProfileWrapper>
 	);
 };

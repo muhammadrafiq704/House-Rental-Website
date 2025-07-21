@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import Register from "../Models/AuthModels/RegisterModel.js";
+import Register from "../../Models/AuthModels/RegisterModel.js";
 
 export const UpdatePassword = async (req, res) => {
 	const { id, password, new_password, confirm_password } = req.body;

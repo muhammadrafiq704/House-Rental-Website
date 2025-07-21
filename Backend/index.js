@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import express from "express";
 import AuthRoutes from "./Routes/AuthRoutes.js";
 import PropertyRoutes from "./Routes/PropertyRoutes.js";
+import ProfileDashboardRoutes from "./Routes/profile-dashboard/ProfileDashboardRoutes.js";
+
 import connectDB from "./config/db.js";
 
 dotenv.config();
@@ -23,6 +25,7 @@ app.use("/api/auth", AuthRoutes);
 
 app.use("/uploads", express.static("uploads"));
 app.use("/api/properties", PropertyRoutes);
+app.use("/api/profile-dashboard", ProfileDashboardRoutes);
 
 // Start Server
 

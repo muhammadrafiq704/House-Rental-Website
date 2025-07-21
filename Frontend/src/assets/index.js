@@ -1,3 +1,4 @@
+import DummyHouse from "@/assets/dummyHouse.png";
 //social links icons
 import facebook from "@/assets/images/singin/facebook.png";
 import instagram from "@/assets/images/singin/instagram.png";
@@ -89,4 +90,5 @@ export const images = {
 	kitchen,
 	large_home,
 	privacy,
+	DummyHouse,
 };

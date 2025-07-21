@@ -2,6 +2,7 @@ import { images } from "@/assets";
 import { useAuth } from "@/context/AuthContext";
 import { FlexBetween, StyledNavlink, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
+import appPaths from "@/utils/appRoutePaths";
 import { Box } from "@mui/material";
 import { Outlet, useLocation, useMatch } from "react-router-dom";
 import { NameFormatter } from "../AppLayout/logic";
@@ -47,7 +48,11 @@ const ProfileLayout = () => {
 						const isActive = useMatch(data.href || "");
 						return (
 							<StyledNavlink
-								to={data.href}
+								to={
+									data.href === appPaths.PROFILE_DASHBOARD && user?._id
+										? `/profile-dashboard/${user?._id}`
+										: data.href
+								}
 								key={data.id}
 								isActive={!!isActive}
 								sx={{

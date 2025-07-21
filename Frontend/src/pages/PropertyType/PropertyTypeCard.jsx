@@ -1,21 +1,70 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
+import { useAuth } from "@/context/AuthContext";
 import { StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
-import { Box, Chip, Grid, Tooltip } from "@mui/material";
-import React from "react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Box, Chip, Grid, IconButton, Tooltip } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ToggleFavorite from "../FavoriteToggle/ToggleFavorite";
 import { StyledHousesCardWrapper } from "./styled";
 
 const PropertyTypeCard = ({ property }) => {
 	const navigate = useNavigate();
+	const { user, favorites, fetchFavorites } = useAuth();
+
+	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		fetchFavorites();
+	}, [fetchFavorites]);
+
+	useEffect(() => {
+		if (favorites && property?._id) {
+			const found = favorites.some(
+				(fav) =>
+					fav.propertyId?._id === property._id && fav.isFavorite === true,
+			);
+			setIsFavorite(found);
+		}
+	}, [favorites, property]);
+
+	const handleClickToggleFavorite = async (userId, propertyId, isFavorite) => {
+		try {
+			await ToggleFavorite(userId, propertyId, !isFavorite);
+			setIsFavorite((prev) => !prev);
+		} catch (error) {
+			console.log("Failed to toggle favorite", error);
+		}
+	};
+
 	return (
 		<StyledHousesCardWrapper key={property._id}>
 			<Grid
 				container
-				sx={{ display: "flex", gap: "20px", p: 1 }}
+				sx={{ display: "flex", gap: "20px", p: 1, position: "relative" }}
 				key={property._id}
 			>
+				<IconButton
+					aria-label="favorite"
+					onClick={() =>
+						handleClickToggleFavorite(user._id, property._id, isFavorite)
+					}
+					sx={{
+						position: "absolute",
+						top: 10,
+						right: 10,
+						backgroundImage:
+							"radial-gradient(at top left,rgb(252, 248, 226),rgb(207, 170, 4) 80%)",
+					}}
+				>
+					{isFavorite ? (
+						<FavoriteIcon sx={{ fontSize: "24px", color: "red" }} />
+					) : (
+						<FavoriteBorderIcon sx={{ fontSize: "24px", color: "#333" }} />
+					)}
+				</IconButton>
 				<Grid
 					sx={{ display: "flex", alignItems: "center", position: "relative" }}
 					size={{ md: 4, xl: 6, sm: 3 }}
@@ -59,6 +108,7 @@ const PropertyTypeCard = ({ property }) => {
 						display: "flex",
 						flexDirection: "column",
 						gap: "16px",
+						// border: "2px solid red",
 					}}
 				>
 					<StyledTypography
@@ -69,6 +119,7 @@ const PropertyTypeCard = ({ property }) => {
 					>
 						{property.property_type}
 					</StyledTypography>
+
 					<Tooltip title={property.desc} arrow>
 						<StyledTypography
 							fs={0.9}

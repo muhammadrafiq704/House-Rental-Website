@@ -6,7 +6,7 @@ const action = async ({ request }) => {
 			case "POST": {
 				const registeredData = await request.json();
 				const response = await HouseRentalAPI.post(
-					"auth/update-password",
+					"profile-dashboard/update-password",
 					registeredData,
 				);
 				return {

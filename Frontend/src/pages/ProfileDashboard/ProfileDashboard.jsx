@@ -1,49 +1,15 @@
-import { images } from "@/assets";
+import UIPageLoading from "@/components/UIPageLoading/UIPageLoading";
+// import { images } from "@/assets";
 import { Box } from "@mui/material";
+import { Suspense } from "react";
 import Scrollbars from "react-custom-scrollbars-2";
+import { Await, useLoaderData } from "react-router-dom";
 import PropertiesCard from "./PropertiesCard";
 import { StyledProfileDashboard } from "./styled";
 
 const ProfileDashboard = () => {
-	// const loaderData = useLoaderData();
-	const dummyData = [
-		{
-			id: 1,
-			title: "Room",
-			desc: "room for rent available now for all kinds of usage.",
-			image: images.bedroom,
-		},
-		{
-			id: 1,
-			title: "Shop",
-			desc: "shop for rent available now commercial use.",
-			image: images.large_home,
-		},
-		{
-			id: 1,
-			title: "Shop",
-			desc: "shop for rent available now commercial use.",
-			image: images.large_home,
-		},
-		{
-			id: 1,
-			title: "Shop",
-			desc: "shop for rent available now commercial use.",
-			image: images.large_home,
-		},
-		{
-			id: 1,
-			title: "Shop",
-			desc: "shop for rent available now commercial use.",
-			image: images.large_home,
-		},
-		{
-			id: 1,
-			title: "Shop",
-			desc: "shop for rent available now commercial use.",
-			image: images.large_home,
-		},
-	];
+	const loaderData = useLoaderData();
+
 	return (
 		<StyledProfileDashboard>
 			<Scrollbars style={{ height: 400 }}>
@@ -55,18 +21,17 @@ const ProfileDashboard = () => {
 						flexWrap: "wrap",
 					}}
 				>
-					{/* <Suspense fallback={<UIPageLoading />}>
-        <Await resolve={loaderData.favorites}> */}
-					{
-						// (dummyData) =>
-						dummyData.length === 0
-							? "No Properties are Found"
-							: dummyData.map((favorite) => (
-									<PropertiesCard items={favorite} key={favorite.id} />
-								))
-					}
-					{/* </Await>
-      </Suspense> */}
+					<Suspense fallback={<UIPageLoading />}>
+						<Await resolve={loaderData.favorites}>
+							{(favorites) =>
+								favorites.data.length === 0
+									? "No Favorites are Found"
+									: favorites?.data?.map((favorite) => (
+											<PropertiesCard items={favorite} key={favorite._id} />
+										))
+							}
+						</Await>
+					</Suspense>
 				</Box>
 			</Scrollbars>
 		</StyledProfileDashboard>

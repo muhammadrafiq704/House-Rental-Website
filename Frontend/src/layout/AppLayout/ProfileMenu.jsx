@@ -59,7 +59,7 @@ const ProfileMenu = ({ anchorEl, handleClose, open, user }) => {
 				</Avatar>{" "}
 				{user.username}
 			</MenuItem>
-			<MenuItem onClick={handleClose}>
+			<MenuItem onClick={() => navigate(`/profile-dashboard/${user._id}`)}>
 				<ListItemIcon>
 					<Settings fontSize="small" sx={{ color: "#006A71" }} />
 				</ListItemIcon>

@@ -1,11 +1,13 @@
 import { HouseRentalAPI } from "@/api/HouseRental";
 import { defer } from "react-router-dom";
 
-const loader = async () => {
+const loader = async ({ params }) => {
 	try {
-		const blogs = HouseRentalAPI.get("properties");
+		const userId = params.userId;
+
+		const favorites = HouseRentalAPI.get(`profile-dashboard/${userId}`);
 		return defer({
-			blogs,
+			favorites,
 		});
 	} catch (error) {
 		return {

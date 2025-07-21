@@ -16,7 +16,7 @@ const appPaths = {
 	TERMS_AND_CONDITIONS: "/terms-and-conditions",
 
 	//profile routes
-	PROFILE_DASHBOARD: "/profile-dashboard",
+	PROFILE_DASHBOARD: "/profile-dashboard/:userId",
 	UPDATE_PROFILE: "/update-profile",
 	NOTIFICATION_SETTINGS: "notification-settings",
 	UPDATE_EMAIL: "update-email",

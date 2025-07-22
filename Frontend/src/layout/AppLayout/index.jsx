@@ -4,10 +4,12 @@ import { useAuth } from "@/context/AuthContext";
 import { StyledNavlink, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
 import appPaths from "@/utils/appRoutePaths";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { Avatar, Box, IconButton, Tooltip } from "@mui/material";
 import { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import AppDrawer from "../AppDrawer";
 import { HeaderData } from "../utils/HeaderData";
 import Footer from "./Footer";
 import ProfileMenu from "./ProfileMenu";
@@ -22,6 +24,7 @@ const AppLayout = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const [anchorEl, setAnchorEl] = useState(null);
+	const [isOpen, setIsOpen] = useState(false);
 
 	const { user, token } = useAuth();
 
@@ -32,6 +35,9 @@ const AppLayout = () => {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+	const handleDrawerClose = () => {
+		setIsOpen(false);
+	};
 	// console.log("user", user);
 	return (
 		<StyledAppWrapper>
@@ -40,7 +46,7 @@ const AppLayout = () => {
 					sx={{
 						textAlign: "left",
 						// border: "1px solid red",
-						display: "flex",
+						display: { xs: "none", md: "flex" },
 						justifyContent: "center",
 						alignItems: "center",
 						mt: 2,
@@ -59,8 +65,24 @@ const AppLayout = () => {
 						/>
 					</Link>
 				</Box>
-				<Box sx={{ display: "flex", alignItems: "center", gap: "80px" }}>
-					<Box sx={{ display: "flex", alignItems: "center", gap: "22px" }}>
+				<Box
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						// border: "1px solid red",
+						gap: "80px",
+						width: "100%",
+					}}
+				>
+					{/* header #1 */}
+					<Box
+						sx={{
+							display: { xs: "none", md: "flex" },
+							alignItems: "center",
+							gap: "22px",
+						}}
+					>
 						{HeaderData.map((head) => (
 							<StyledNavlink
 								to={
@@ -85,6 +107,15 @@ const AppLayout = () => {
 							</StyledNavlink>
 						))}
 					</Box>
+
+					{/* header #2 */}
+					<IconButton
+						onClick={() => setIsOpen(true)}
+						sx={{ display: { xs: "block", md: "none" } }}
+					>
+						<MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
+					</IconButton>
+					<AppDrawer isOpen={isOpen} onClose={handleDrawerClose} />
 					<Box sx={{ display: "flex", gap: "10px" }}>
 						<UIButton
 							fs={14}

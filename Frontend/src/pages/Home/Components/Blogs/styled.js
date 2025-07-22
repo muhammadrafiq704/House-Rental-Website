@@ -18,6 +18,7 @@ export const BlogsCardWrapper = styled(Grid)(({ theme }) => ({
 	display: "flex",
 	cursor: "pointer",
 	transition: "all 0.3s ease",
+	// border:'3px solid red',
 	"& img": {
 		borderRadius: theme.shape.customRadius.curve,
 		width: "100%",

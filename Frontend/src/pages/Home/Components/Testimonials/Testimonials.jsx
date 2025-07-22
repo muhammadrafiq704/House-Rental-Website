@@ -14,7 +14,11 @@ const Testimonials = () => {
 					gap: "2px",
 				}}
 			>
-				<StyledTypography fs={0.9} styletype="default">
+				<StyledTypography
+					fs={0.9}
+					styletype="default"
+					sx={{ textAlign: "center" }}
+				>
 					We are committed to making our clients happy with our services
 					<hr />
 				</StyledTypography>

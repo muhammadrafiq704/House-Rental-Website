@@ -12,6 +12,8 @@ export const StyledGrid = styled(Grid)(({ theme }) => ({
 	boxShadow: theme.shadows[1],
 	display: "flex",
 	flexDirection: "column",
+	alignItems: "center",
+	justifyContent: "center",
 	gap: "10px",
 	padding: "16px",
 	transition: "all 0.3s ease",

@@ -23,7 +23,12 @@ const Blogs = () => {
 					gap: "4px",
 				}}
 			>
-				<StyledTypography fs={0.9} styletype="default" fw={500}>
+				<StyledTypography
+					fs={0.9}
+					styletype="default"
+					fw={500}
+					sx={{ textAlign: "center" }}
+				>
 					Customers trust us to sell, purchase, and rent their properties.
 					<hr />
 				</StyledTypography>
@@ -31,7 +36,6 @@ const Blogs = () => {
 					Recent Blogs
 				</StyledTypography>
 			</Box>
-
 			<Suspense fallback={<UISkeletonPage />}>
 				<Await
 					resolve={loaderData.properties}
@@ -52,6 +56,7 @@ const Blogs = () => {
 										flexWrap: "wrap",
 										gap: "20px",
 										marginTop: 1,
+										// border: "3px solid red",
 									}}
 								>
 									{blogs.length === 0 ? (

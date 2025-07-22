@@ -51,12 +51,11 @@ const Blogs = () => {
 								<Box
 									sx={{
 										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
+										alignItems: { xs: "baseline", md: "center" },
+										justifyContent: { xs: "baseline", md: "center" },
 										flexWrap: "wrap",
-										gap: "20px",
+										gap: { xs: "10px", md: "20px" },
 										marginTop: 1,
-										// border: "3px solid red",
 									}}
 								>
 									{blogs.length === 0 ? (

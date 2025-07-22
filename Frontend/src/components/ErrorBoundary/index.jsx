@@ -23,7 +23,7 @@ export default function ErrorPage() {
 						error?.message ||
 						"Unexpected Error occur"}
 				</StyledTypography>
-				<StyledTypography styletype="default">
+				<StyledTypography styletype="default" sx={{ textAlign: "center" }}>
 					Error:{" "}
 					{error?.statusText ||
 						error?.response?.data?.error ||

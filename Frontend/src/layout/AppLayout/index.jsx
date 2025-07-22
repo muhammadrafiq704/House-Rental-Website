@@ -111,7 +111,7 @@ const AppLayout = () => {
 					{/* header #2 */}
 					<IconButton
 						onClick={() => setIsOpen(true)}
-						sx={{ display: { xs: "block", md: "none" } }}
+						sx={{ display: { xs: "block", md: "none" }, color: "#006A71" }}
 					>
 						<MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
 					</IconButton>

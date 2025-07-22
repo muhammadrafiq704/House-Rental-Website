@@ -7,6 +7,8 @@ const StyledAppWrapper = styled("div")(({ theme }) => ({
 	fontFamily: theme.typography.fontFamily,
 	background: "linear-gradient(to bottom right, #e0f7fa, #ffffff)",
 	// border:'3px solid red',
+	overflowY: "hidden",
+	overflowX: "hidden",
 }));
 
 const StyleHeaderWrapper = styled(Box)(({ theme }) => ({

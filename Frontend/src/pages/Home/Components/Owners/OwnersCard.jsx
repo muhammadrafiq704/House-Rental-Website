@@ -21,9 +21,8 @@ const OwnersCard = () => {
 			{dummyOwners?.map((owner) => (
 				<StyledGrid
 					size={{ xl: 6, md: 4, sm: 8, xs: 12 }}
-					_
 					key={owner.id}
-					sx={{ width: { xs: 180, md: 300 } }}
+					sx={{ width: { xs: 150, md: 300 } }}
 				>
 					<Box
 						sx={{

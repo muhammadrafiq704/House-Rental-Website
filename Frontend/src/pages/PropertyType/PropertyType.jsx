@@ -33,7 +33,7 @@ const PropertyType = () => {
 					<Suspense fallback={<UISkeletonPage />}>
 						<Await resolve={loaderData.properties}>
 							{(properties) =>
-								properties?.data?.data?.length === 0
+								properties?.data?.length === 0
 									? "No Houses Found"
 									: properties?.data?.data?.map((property) => (
 											<PropertyTypeCard
@@ -45,11 +45,12 @@ const PropertyType = () => {
 						</Await>
 					</Suspense>
 				</Grid>
+				{/* advertisement section  */}
 				<Grid
 					spacing={1}
 					sx={{
 						width: "35%",
-						display: "flex",
+						display: { xs: "none", md: "none", lg: "block" },
 						flexDirection: "column",
 						gap: "10px",
 						padding: "0 10px",

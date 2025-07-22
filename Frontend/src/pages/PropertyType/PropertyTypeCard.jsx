@@ -10,11 +10,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ToggleFavorite from "../FavoriteToggle/ToggleFavorite";
 import { StyledHousesCardWrapper } from "./styled";
+// import useIsMobile from "@/hooks/isMobile";
 
 const PropertyTypeCard = ({ property }) => {
 	const navigate = useNavigate();
 	const { user, favorites, fetchFavorites } = useAuth();
 
+	// const isMobile = useIsMobile();
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		fetchFavorites();
@@ -40,10 +42,18 @@ const PropertyTypeCard = ({ property }) => {
 	};
 
 	return (
-		<StyledHousesCardWrapper key={property._id}>
+		<StyledHousesCardWrapper
+			key={property._id}
+			sx={{ width: { xs: "350px", md: "100%" } }}
+		>
 			<Grid
 				container
-				sx={{ display: "flex", gap: "20px", p: 1, position: "relative" }}
+				sx={{
+					display: "flex",
+					gap: { xs: "0px", md: "20px" },
+					p: 1,
+					position: "relative",
+				}}
 				key={property._id}
 			>
 				<IconButton
@@ -52,6 +62,7 @@ const PropertyTypeCard = ({ property }) => {
 						handleClickToggleFavorite(user._id, property._id, isFavorite)
 					}
 					sx={{
+						display: { xs: "none", md: "block" },
 						position: "absolute",
 						top: 10,
 						right: 10,
@@ -65,17 +76,31 @@ const PropertyTypeCard = ({ property }) => {
 						<FavoriteBorderIcon sx={{ fontSize: "24px", color: "#333" }} />
 					)}
 				</IconButton>
-				<Grid
-					sx={{ display: "flex", alignItems: "center", position: "relative" }}
-					size={{ md: 4, xl: 6, sm: 3 }}
-				>
-					{" "}
-					<img
-						src={ImageGettingURL(property.file[0])}
-						alt="cover-img"
-						width={250}
-						height={200}
+				<Box sx={{ position: "relative" }}>
+					<Box
+						component="img"
+						src={ImageGettingURL(property?.file[0])}
+						alt="blogs-img"
+						sx={{
+							display: { xs: "none", md: "block" },
+							width: {
+								xs: "100%", // full width on extra small devices (mobile)
+								sm: 270, // fixed width on small and larger screens
+							},
+							height: {
+								xs: 180, // smaller height on mobile
+								sm: 200, // original height on larger screens
+							},
+							objectFit: "cover",
+						}}
 					/>
+					<Box sx={{ display: { xs: "block", md: "none" } }}>
+						<img
+							src={ImageGettingURL(property?.file[0])}
+							alt="blogs-img"
+							style={{ width: "330px", height: "200px" }}
+						/>
+					</Box>
 					{property?.purpose ? (
 						<Chip
 							label={
@@ -85,11 +110,10 @@ const PropertyTypeCard = ({ property }) => {
 										? "Featured"
 										: "Renting"
 							}
-							color="#006A71"
 							sx={{
 								position: "absolute",
 								top: 10,
-								right: 40,
+								right: 20,
 								fontWeight: 600,
 								backgroundImage:
 									property.purpose === "featured"
@@ -100,14 +124,36 @@ const PropertyTypeCard = ({ property }) => {
 							}}
 						/>
 					) : null}
-				</Grid>
+					<IconButton
+						aria-label="favorite"
+						onClick={() =>
+							handleClickToggleFavorite(user._id, property._id, isFavorite)
+						}
+						sx={{
+							display: { xs: "block", md: "none" },
+							position: "absolute",
+							top: 10,
+							left: 10,
+							backgroundImage:
+								"radial-gradient(at top left,rgb(252, 248, 226),rgb(207, 170, 4) 80%)",
+						}}
+					>
+						{isFavorite ? (
+							<FavoriteIcon sx={{ fontSize: "18px", color: "red" }} />
+						) : (
+							<FavoriteBorderIcon sx={{ fontSize: "18px", color: "#333" }} />
+						)}
+					</IconButton>
+				</Box>
+
 				<Grid
-					size={{ md: 7, xl: 6, sm: 3 }}
+					size={{ xs: 12 }}
 					sx={{
-						width: "60%",
+						width: { xs: "100%", md: "60%" },
 						display: "flex",
 						flexDirection: "column",
-						gap: "16px",
+						gap: { xs: "10px", md: "16px" },
+						p: { xs: 1 },
 						// border: "2px solid red",
 					}}
 				>
@@ -165,7 +211,14 @@ const PropertyTypeCard = ({ property }) => {
 							{property.location}
 						</StyledTypography>
 					</Box>
-					<Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+					<Box
+						sx={{
+							display: "flex",
+							flexWrap: { xs: "wrap" },
+							alignItems: "center",
+							gap: "8px",
+						}}
+					>
 						<StyledTypography
 							fs={0.9}
 							styletype="default"

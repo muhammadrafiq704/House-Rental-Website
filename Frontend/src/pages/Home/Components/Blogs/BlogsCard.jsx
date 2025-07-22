@@ -12,18 +12,29 @@ const BlogsCard = ({ items }) => {
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
 	return (
-		<BlogsCardWrapper key={items._id}>
+		<BlogsCardWrapper
+			key={items._id}
+			sx={{ width: { xs: "180px", md: "300px" } }}
+		>
 			<FlexBetween gap={10} direction="column">
 				<Box sx={{ position: "relative" }}>
-					<img
+					<Box
+						component="img"
 						src={ImageGettingURL(items.file[0])}
 						alt="blogs-img"
-						style={{
-							width: 270,
-							height: 200,
+						sx={{
+							width: {
+								xs: "100%",
+								md: 270,
+							},
+							height: {
+								xs: 150,
+								md: 270,
+							},
 							objectFit: "cover",
 						}}
 					/>
+
 					{items?.purpose ? (
 						<Chip
 							label={
@@ -33,7 +44,6 @@ const BlogsCard = ({ items }) => {
 										? "Featured"
 										: "Renting"
 							}
-							color="#006A71"
 							sx={{
 								position: "absolute",
 								top: 10,
@@ -49,6 +59,7 @@ const BlogsCard = ({ items }) => {
 						/>
 					) : null}
 				</Box>
+
 				<StyledTypography
 					fs={1.1}
 					fw={600}
@@ -58,7 +69,11 @@ const BlogsCard = ({ items }) => {
 				>
 					{items.property_type}
 				</StyledTypography>
-				<Tooltip title={items.desc} arrow>
+				<Tooltip
+					title={items.desc}
+					arrow
+					sx={{ display: { xs: "none", md: "block" } }}
+				>
 					<StyledTypography fs={0.9} styletype="default" maxlines={2}>
 						{items.desc}
 					</StyledTypography>

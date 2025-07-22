@@ -23,7 +23,7 @@ const CategoriesCard = () => {
 					size={{ xs: 2, md: 2.4, sm: 6 }}
 					key={category.id}
 					onClick={() => navigate(`/${category.title.toLowerCase()}`)}
-					sx={{ height: { xs: 200 } }}
+					sx={{ height: { xs: 150, sm: 200 }, width: { xs: 120, sm: 150 } }}
 				>
 					<img src={category.image} alt="icon" />
 					<StyledTypography

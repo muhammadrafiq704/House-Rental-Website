@@ -1,7 +1,7 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { useAuth } from "@/context/AuthContext";
-import { FlexBetween, StyledTypography } from "@/styled";
+import { FlexBetween, StyledNavlink, StyledTypography } from "@/styled";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { Box, Drawer } from "@mui/material";
 import React from "react";
@@ -39,18 +39,42 @@ const AppDrawer = ({ isOpen, onClose }) => {
 						style={{ height: 120, objectFit: "contain" }}
 					/>
 				</Box>
-				{HeaderData.map((data) => (
-					<FlexBetween key={data.id} gap={2} sx={{ pl: 2, overflowY: "auto" }}>
-						<StyledTypography
-							fs={1.1}
-							fw={700}
-							styletype="default"
-							sx={{ mt: 1, textTransform: "capitalize" }}
+				<Box
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						gap: "10px",
+						pl: 2,
+						mt: 2,
+					}}
+				>
+					{HeaderData.map((data) => (
+						<StyledNavlink
+							to={
+								data.title === "Home" ||
+								data.title === "About Us" ||
+								data.title === "Contact Us"
+									? data.href
+									: `/${data.title.toLowerCase()}`
+							}
+							key={data.id}
+							style={({ isActive }) => ({
+								fontSize: isActive ? "18px" : "16px",
+								fontWeight: isActive ? "800" : "600",
+								color: "#006A71",
+								// for active underline
+								...(isActive && {
+									borderBottom: "2px solid #006A71",
+								}),
+							})}
 						>
-							{data.title}
-						</StyledTypography>
-					</FlexBetween>
-				))}
+							<Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+								<img src={data.icon} alt={data.title} height={24} />
+								{data.title}
+							</Box>
+						</StyledNavlink>
+					))}
+				</Box>
 			</Box>
 			<Box
 				sx={{

@@ -47,9 +47,7 @@ const Footer = () => {
 					</StyledNavlink>
 				))}
 			</FooterLinks>
-			<FooterContact
-				sx={{ border: "1px solid red", alignItems: { xs: "center" } }}
-			>
+			<FooterContact sx={{ alignItems: { xs: "center" } }}>
 				<StyledTypography fs={1} styletype="default">
 					Connect with us to explore your dream sites!
 				</StyledTypography>

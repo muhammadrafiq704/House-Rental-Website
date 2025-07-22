@@ -8,9 +8,23 @@ const OwnersCard = () => {
 	//   const visibleOwners = dummyOwners.slice(0, 4);
 
 	return (
-		<Grid container spacing={2} sx={{ pl: 2, pr: 2, mt: 1 }}>
+		<Grid
+			container
+			spacing={2}
+			sx={{
+				mt: 1,
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+			}}
+		>
 			{dummyOwners?.map((owner) => (
-				<StyledGrid size={{ xl: 6, md: 4, sm: 8 }} key={owner.id}>
+				<StyledGrid
+					size={{ xl: 6, md: 4, sm: 8, xs: 12 }}
+					_
+					key={owner.id}
+					sx={{ width: { xs: 180, md: 300 } }}
+				>
 					<Box
 						sx={{
 							display: "flex",

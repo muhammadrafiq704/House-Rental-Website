@@ -6,7 +6,7 @@ import { StyledHeroWrapper } from "./styled/styled";
 
 const Hero = () => {
 	return (
-		<StyledHeroWrapper>
+		<StyledHeroWrapper sx={{ display: { xs: "none", md: "block" } }}>
 			<Box
 				sx={{
 					position: "relative",
@@ -17,7 +17,7 @@ const Hero = () => {
 			>
 				<Grid
 					container
-					spacing={4}
+					spacing={2}
 					sx={{
 						display: "flex",
 						flexDirection: "column",
@@ -26,7 +26,7 @@ const Hero = () => {
 						width: "100%",
 					}}
 				>
-					<Grid item>
+					<Grid item size={{ xs: 12 }}>
 						<StyledTypography fs={3.3} sx={{ textAlign: "center" }}>
 							Find Your Dream Property <br /> With Us!
 						</StyledTypography>

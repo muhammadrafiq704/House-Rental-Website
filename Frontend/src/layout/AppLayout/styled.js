@@ -1,15 +1,16 @@
 import { Box, styled } from "@mui/material";
 
 const StyledAppWrapper = styled("div")(({ theme }) => ({
-	minWidth: "100dvh",
-	minHeight: "100dvh",
+	minWidth: "100dvw",
+	minHeight: "100vh",
 	backgroundColor: theme.palette.primary.main,
 	fontFamily: theme.typography.fontFamily,
 	background: "linear-gradient(to bottom right, #e0f7fa, #ffffff)",
+	// border:'3px solid red',
 }));
 
 const StyleHeaderWrapper = styled(Box)(({ theme }) => ({
-	minWidth: "100dvh",
+	minWidth: "100dvw",
 	minHeight: "10dvh",
 	backgroundColor: theme.palette.primary.shade1,
 	display: "flex",
@@ -37,6 +38,7 @@ const StyledFooterWrapper = styled("div")(({ theme }) => ({
 	boxShadow: theme.shadows[1],
 	marginBottom: "8px",
 	borderRadius: theme.shape.customRadius.halfRounded,
+	overflowX: "hidden",
 }));
 
 const FooterContent = styled("div")({
@@ -74,7 +76,7 @@ const FooterContact = styled("div")({
 	padding: "4px",
 	display: "flex",
 	flexDirection: "column",
-	alignItems: "baseline",
+	alignItems: "cent",
 	gap: "20px",
 });
 const FooterContactInfo = styled("div")({

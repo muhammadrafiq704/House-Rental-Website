@@ -13,14 +13,14 @@ const SolutionsCard = () => {
 				rowGap: "20px",
 				columnGap: "10px",
 				alignItems: "center",
-				pl: 2,
-				pr: 2,
+				pl: { xs: 0, md: 2 },
+				pr: { xs: 0, md: 2 },
 			}}
 		>
 			{dummySolutions.map((solution) => (
 				<StyledSolutionsCard
 					key={solution.id}
-					size={{ xs: 6, md: 4, sm: 3 }}
+					size={{ xs: 12 }}
 					display="flex"
 					flexDirection="column"
 					flexWrap="wrap"

@@ -18,7 +18,7 @@ const Solutions = () => {
 				}}
 			>
 				<Grid
-					size={{ xs: 6, md: 12, sm: 2 }}
+					size={{ xs: 12 }}
 					display="flex"
 					flexDirection="column"
 					alignItems="center"
@@ -27,7 +27,12 @@ const Solutions = () => {
 						learn more about our features and services
 						<hr />
 					</StyledTypography>
-					<StyledTypography fs={1.8} styletype="default" fw={650}>
+					<StyledTypography
+						fs={1.8}
+						styletype="default"
+						fw={650}
+						sx={{ textAlign: "center" }}
+					>
 						Complete solution for owners
 					</StyledTypography>
 				</Grid>

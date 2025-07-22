@@ -13,7 +13,7 @@ import {
 const Footer = () => {
 	return (
 		<FooterContent>
-			<FooterLogo>
+			<FooterLogo sx={{ display: { xs: "none", md: "flex" } }}>
 				<img
 					src={icons.brangsaa}
 					alt="logo"
@@ -28,7 +28,7 @@ const Footer = () => {
 					Where peace meets opportunity!
 				</StyledTypography>
 			</FooterLogo>
-			<FooterLinks>
+			<FooterLinks sx={{ display: { xs: "none", md: "flex" } }}>
 				{FooterData.map((footer) => (
 					<StyledNavlink
 						key={footer.id}
@@ -47,7 +47,9 @@ const Footer = () => {
 					</StyledNavlink>
 				))}
 			</FooterLinks>
-			<FooterContact>
+			<FooterContact
+				sx={{ border: "1px solid red", alignItems: { xs: "center" } }}
+			>
 				<StyledTypography fs={1} styletype="default">
 					Connect with us to explore your dream sites!
 				</StyledTypography>
@@ -86,7 +88,7 @@ const Footer = () => {
 					/>
 				</FlexBetween>
 			</FooterContact>
-			<FooterContactInfo>
+			<FooterContactInfo sx={{ display: { xs: "none", md: "block" } }}>
 				<FlexBetween gap={12} direction="column">
 					<StyledTypography
 						fs={1}

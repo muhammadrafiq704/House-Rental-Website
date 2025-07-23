@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 // Middlewares
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({ credentials: true, origin: "http://localhost:5174" }));
 
 // Routes
 app.use("/api/auth", AuthRoutes);

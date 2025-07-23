@@ -6,8 +6,19 @@ import { contactData } from "./utils";
 
 const ContactUs = () => {
 	return (
-		<StyledContactWrappper>
-			<Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+		<StyledContactWrappper
+			sx={{
+				flexDirection: { xs: "column", sm: "column", lg: "row", xl: "row" },
+			}}
+		>
+			<Box
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "20px",
+					width: "100%",
+				}}
+			>
 				<StyledTypography fs={1} styletype="default" light>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam non
 					sit consequuntur libero excepturi cumque molestiae ab. Alias enim esse

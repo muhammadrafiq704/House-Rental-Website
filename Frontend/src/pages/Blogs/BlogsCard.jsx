@@ -13,18 +13,26 @@ const BlogsCard = ({ items }) => {
 		navigating.state === "loading" || navigating.state === "submitting";
 
 	return (
-		<BlogsCardWrapper>
+		<BlogsCardWrapper sx={{ width: { xs: "180px", md: "300px" } }}>
 			<FlexBetween gap={10} direction="column">
 				<Box sx={{ position: "relative" }}>
-					<img
+					<Box
+						component="img"
 						src={ImageGettingURL(items.file[0])}
 						alt="blogs-img"
-						style={{
-							width: 270,
-							height: 200,
+						sx={{
+							width: {
+								xs: "100%",
+								md: 270,
+							},
+							height: {
+								xs: 150,
+								md: 270,
+							},
 							objectFit: "cover",
 						}}
 					/>
+
 					{items?.purpose ? (
 						<Chip
 							label={
@@ -34,7 +42,6 @@ const BlogsCard = ({ items }) => {
 										? "Featured"
 										: "Renting"
 							}
-							color="#006A71"
 							sx={{
 								position: "absolute",
 								top: 10,

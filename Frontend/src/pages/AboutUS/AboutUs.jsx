@@ -164,7 +164,7 @@ const Home = () => {
 					))}
 				</Box>
 			</Box>
-			<Box>
+			<Box sx={{ display: { xs: "none", md: "block" } }}>
 				<img
 					src={images.hero}
 					alt="img"

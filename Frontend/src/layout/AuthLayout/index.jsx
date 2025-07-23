@@ -5,7 +5,7 @@ import { StyledAuthWrapper } from "./styled";
 const AuthLayout = () => {
 	return (
 		<StyledAuthWrapper>
-			<Box sx={{ p: 2 }}>
+			<Box>
 				<Outlet />
 			</Box>
 		</StyledAuthWrapper>

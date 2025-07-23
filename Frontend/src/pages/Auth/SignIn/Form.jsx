@@ -50,7 +50,10 @@ const Form = () => {
 	}, [actionData, navigate, login]);
 
 	return (
-		<form onSubmit={loginForm.handleSubmit(onSubmit)}>
+		<form
+			onSubmit={loginForm.handleSubmit(onSubmit)}
+			style={{ width: "100%", padding: "20px", overflow: "hidden" }}
+		>
 			<UIInputFields
 				name="email"
 				placeholder="Enter your email"

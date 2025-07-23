@@ -64,7 +64,7 @@ const Form = () => {
 	return (
 		<form
 			onSubmit={loginForm.handleSubmit(onSubmit)}
-			style={{ padding: "0 20px 10px 20px" }}
+			style={{ width: "100%", padding: "20px", overflow: "scroll" }}
 		>
 			<UIInputFields
 				name="file"

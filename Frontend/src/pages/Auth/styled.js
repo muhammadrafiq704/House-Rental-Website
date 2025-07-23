@@ -11,7 +11,7 @@ export const StyledAuthCardWrapper = styled(Box)(({ theme }) => ({
 	},
 }));
 export const StyledFormWrapper = styled(Box)(({ theme }) => ({
-	width: "500px",
+	width: "100%",
 	height: "450px",
 	display: "flex",
 	flexDirection: "column",
@@ -34,7 +34,7 @@ export const StyledFormWrapper = styled(Box)(({ theme }) => ({
 	},
 }));
 export const StyledLinkWrapper = styled(Box)(({ theme }) => ({
-	width: "500px",
+	width: "100%",
 	height: "450px",
 	display: "flex",
 	flexDirection: "column",

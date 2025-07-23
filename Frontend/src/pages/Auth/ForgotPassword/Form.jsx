@@ -47,7 +47,10 @@ const Form = () => {
 	}, [actionData, navigate]);
 
 	return (
-		<form onSubmit={loginForm.handleSubmit(onSubmit)}>
+		<form
+			onSubmit={loginForm.handleSubmit(onSubmit)}
+			style={{ width: "100%", padding: "20px", overflow: "hidden" }}
+		>
 			<UIInputFields
 				name="new_password"
 				placeholder="Enter your new password"

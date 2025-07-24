@@ -13,29 +13,11 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(cookieParser());
 app.use(bodyParser.json());
-
-const whitelist = [
-	"http://localhost:5173",
-	"https://house-rental-website-five.vercel.app/",
-];
-
-app.use(
-	cors({
-		origin: (origin, callback) => {
-			if (whitelist.includes(origin) || !origin) {
-				callback(null, true);
-			} else {
-				callback(new Error("Not allowed by CORS"));
-			}
-		},
-		credentials: true,
-	}),
-);
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 
 // Routes
 app.use("/api/auth", AuthRoutes);
@@ -46,4 +28,4 @@ app.use("/api/profile-dashboard", ProfileDashboardRoutes);
 
 // Start Server
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default app; // ES Module

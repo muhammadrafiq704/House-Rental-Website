@@ -25,7 +25,7 @@ const PropertiesCard = ({ items }) => {
 	};
 
 	return (
-		<StyledPropertiesCardWrapper>
+		<StyledPropertiesCardWrapper sx={{ width: { xs: "180px", md: "270px" } }}>
 			<img
 				src={
 					items.propertyId

@@ -18,7 +18,24 @@ const PORT = process.env.PORT || 5000;
 // Middlewares
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+
+const whitelist = [
+	"http://localhost:5173",
+	"https://house-rental-website-five.vercel.app/",
+];
+
+app.use(
+	cors({
+		origin: (origin, callback) => {
+			if (whitelist.includes(origin) || !origin) {
+				callback(null, true);
+			} else {
+				callback(new Error("Not allowed by CORS"));
+			}
+		},
+		credentials: true,
+	}),
+);
 
 // Routes
 app.use("/api/auth", AuthRoutes);

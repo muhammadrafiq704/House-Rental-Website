@@ -14,7 +14,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
-	const [token, setToken] = useState(localStorage.getItem("token") || null);
+	const [token, setToken] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [favorites, setFavorites] = useState([]);
 

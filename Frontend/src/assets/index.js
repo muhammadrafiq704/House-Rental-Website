@@ -37,6 +37,12 @@ import brangsaa from "@/assets/brangsaa.png";
 import bathroom from "@/assets/icons/Blogs/bathtub.png";
 import bed from "@/assets/icons/Blogs/bed.png";
 import kit from "@/assets/icons/Blogs/spoon-and-fork.png";
+import blog from "@/assets/icons/computer.png";
+import dashboard from "@/assets/icons/dashboard.png";
+import plot from "@/assets/icons/graph.png";
+import about_us from "@/assets/icons/information.png";
+import shop from "@/assets/icons/store.png";
+
 //icons
 import right_up from "@/assets/icons/Home/right-up.png";
 import home from "@/assets/images/Category/home-icon.png";
@@ -76,6 +82,11 @@ export const icons = {
 	bed,
 	brangsaa,
 	hand,
+	shop,
+	plot,
+	about_us,
+	blog,
+	dashboard,
 };
 export const images = {
 	hero,

@@ -43,13 +43,14 @@ const AppDrawer = ({ isOpen, onClose }) => {
 					sx={{
 						display: "flex",
 						flexDirection: "column",
-						gap: "10px",
+						gap: "16px",
 						pl: 2,
 						mt: 2,
 					}}
 				>
 					{HeaderData.map((data) => (
 						<StyledNavlink
+							onClick={() => onClose()}
 							to={
 								data.title === "Home" ||
 								data.title === "About Us" ||
@@ -59,7 +60,7 @@ const AppDrawer = ({ isOpen, onClose }) => {
 							}
 							key={data.id}
 							style={({ isActive }) => ({
-								fontSize: isActive ? "18px" : "16px",
+								fontSize: isActive ? "24px" : "18px",
 								fontWeight: isActive ? "800" : "600",
 								color: "#006A71",
 								// for active underline
@@ -93,6 +94,7 @@ const AppDrawer = ({ isOpen, onClose }) => {
 					iconPosition="start"
 					size="large"
 					imgWidth={20}
+					sx={{ width: "100%" }}
 					onClick={() => {
 						logout();
 						return navigate("/sign-in");

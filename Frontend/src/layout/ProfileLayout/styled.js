@@ -8,6 +8,7 @@ export const StyledProfileLayout = styled(Box)({
 	alignItems: "flex-start",
 	// border: "2px solid green",
 	padding: "10px 20px 10px 20px",
+	overflow: "hidden",
 });
 
 export const StyledCardWrapper = styled(Box)(({ theme }) => ({

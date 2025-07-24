@@ -13,8 +13,10 @@ const ProfileLayout = () => {
 	const location = useLocation();
 	const { user } = useAuth();
 	return (
-		<StyledProfileLayout>
-			<StyledCardWrapper>
+		<StyledProfileLayout
+			sx={{ flexDirection: { xs: "column", md: "row" }, gap: { xs: "10px" } }}
+		>
+			<StyledCardWrapper sx={{ width: { xs: "380px" } }}>
 				<Box
 					sx={{
 						display: "flex",

@@ -6,8 +6,6 @@ export const createProperty = async (req, res) => {
 		const registeredData = req.body;
 		const files = req.files;
 
-		//  console.log('files', files)
-
 		if (!files || files.length === 0) {
 			return res.status(400).json({ message: "No files uploaded" });
 		}
@@ -17,7 +15,6 @@ export const createProperty = async (req, res) => {
 
 		for (const file of files) {
 			const upload = await uploadFile(file.path); // cloudinary upload
-			// console.log('upload', upload);
 
 			uploadedUrls.push(upload.secure_url);
 		}

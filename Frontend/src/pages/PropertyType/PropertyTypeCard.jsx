@@ -40,7 +40,7 @@ const PropertyTypeCard = ({ property }) => {
 			console.log("Failed to toggle favorite", error);
 		}
 	};
-
+	console.log("property", property);
 	return (
 		<StyledHousesCardWrapper
 			key={property._id}
@@ -79,7 +79,7 @@ const PropertyTypeCard = ({ property }) => {
 				<Box sx={{ position: "relative" }}>
 					<Box
 						component="img"
-						src={ImageGettingURL(property?.file[0])}
+						src={property?.file[0]}
 						alt="blogs-img"
 						sx={{
 							display: { xs: "none", md: "block" },
@@ -89,16 +89,25 @@ const PropertyTypeCard = ({ property }) => {
 							},
 							height: {
 								xs: 180, // smaller height on mobile
-								sm: 200, // original height on larger screens
+								sm: 220, // original height on larger screens
 							},
 							objectFit: "cover",
 						}}
 					/>
-					<Box sx={{ display: { xs: "block", md: "none" } }}>
+					<Box
+						sx={{
+							display: {
+								xs: "block",
+								md: "none",
+								width: "330px",
+								height: "200px",
+							},
+						}}
+					>
 						<img
-							src={ImageGettingURL(property?.file[0])}
+							src={property?.file[0]}
 							alt="blogs-img"
-							style={{ width: "330px", height: "200px" }}
+							style={{ width: "330px", height: "200px", objectFit: "cover" }}
 						/>
 					</Box>
 					{property?.purpose ? (

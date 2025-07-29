@@ -20,7 +20,7 @@ const SolutionsCard = () => {
 			{dummySolutions.map((solution) => (
 				<StyledSolutionsCard
 					key={solution.id}
-					size={{ xs: 12 }}
+					size={{ xs: 12, md: 6 }}
 					display="flex"
 					flexDirection="column"
 					flexWrap="wrap"

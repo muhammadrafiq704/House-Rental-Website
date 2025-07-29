@@ -1,4 +1,5 @@
 import UIButton from "@/components/Button/UIButton";
+import useIsMobile from "@/hooks/isMobile";
 import { FlexBetween, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
 import { Box, Chip, Tooltip } from "@mui/material";
@@ -8,13 +9,14 @@ import { BlogsCardWrapper } from "./styled";
 const BlogsCard = ({ items }) => {
 	const navigate = useNavigate();
 	const navigating = useNavigation();
+	const isMobile = useIsMobile();
 
 	const isLoading =
 		navigating.state === "loading" || navigating.state === "submitting";
 	return (
 		<BlogsCardWrapper
 			key={items._id}
-			sx={{ width: { xs: "180px", md: "300px" } }}
+			sx={{ width: isMobile ? 160 : { xs: "180px", md: "300px" } }}
 		>
 			<FlexBetween gap={10} direction="column">
 				<Box sx={{ position: "relative" }}>

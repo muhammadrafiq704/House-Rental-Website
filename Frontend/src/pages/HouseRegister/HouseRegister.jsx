@@ -54,7 +54,7 @@ const HouseRegister = () => {
 			encType: "multipart/form-data",
 			method: "POST",
 		};
-		// console.log('data', data)
+		console.log("data", data);
 		const dataHas = { ...data };
 		const formData = new FormData();
 

@@ -1,4 +1,5 @@
 import { images } from "@/assets";
+import useIsMobile from "@/hooks/isMobile";
 import { StyledTypography } from "@/styled";
 import { Box, Grid } from "@mui/material";
 import { StyledGrid } from "./styled";
@@ -6,6 +7,7 @@ import { dummyOwners } from "./utils";
 
 const OwnersCard = () => {
 	//   const visibleOwners = dummyOwners.slice(0, 4);
+	const isMobile = useIsMobile();
 
 	return (
 		<Grid
@@ -22,7 +24,7 @@ const OwnersCard = () => {
 				<StyledGrid
 					size={{ xl: 6, md: 4, sm: 8, xs: 12 }}
 					key={owner.id}
-					sx={{ width: { xs: 150, md: 300 } }}
+					sx={{ width: isMobile ? 150 : { xs: 150, md: 300 } }}
 				>
 					<Box
 						sx={{

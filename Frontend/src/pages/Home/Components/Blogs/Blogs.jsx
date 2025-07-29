@@ -51,8 +51,8 @@ const Blogs = () => {
 								<Box
 									sx={{
 										display: "flex",
-										alignItems: { xs: "baseline", md: "center" },
-										justifyContent: { xs: "baseline", md: "center" },
+										alignItems: { xs: "center", md: "center" },
+										justifyContent: { xs: "center", md: "center" },
 										flexWrap: "wrap",
 										gap: { xs: "10px", md: "20px" },
 										marginTop: 1,

@@ -1,6 +1,7 @@
 import { icons } from "@/assets";
 import UIButton from "@/components/Button/UIButton";
 import { useAuth } from "@/context/AuthContext";
+import useIsMobile from "@/hooks/isMobile";
 import { StyledNavlink, StyledTypography } from "@/styled";
 import { ImageGettingURL } from "@/utils/ImageGettingURL";
 import appPaths from "@/utils/appRoutePaths";
@@ -25,7 +26,7 @@ const AppLayout = () => {
 	const location = useLocation();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [isOpen, setIsOpen] = useState(false);
-
+	const isMobile = useIsMobile();
 	const { user, token } = useAuth();
 
 	const open = Boolean(anchorEl);
@@ -125,6 +126,10 @@ const AppLayout = () => {
 							iconPosition="end"
 							imgWidth={18}
 							onClick={() => navigate(appPaths.PROPERTY_REGISTER)}
+							sx={{
+								width: isMobile ? "120px" : "auto",
+								fontSize: isMobile && "12px",
+							}}
 						/>
 						{!token && (
 							<UIButton
@@ -135,6 +140,7 @@ const AppLayout = () => {
 								iconPosition="end"
 								imgWidth={20}
 								onClick={() => navigate(appPaths.SIGN_IN)}
+								sx={{ fontSize: isMobile && "12px" }}
 							/>
 						)}
 						{user && token && (
